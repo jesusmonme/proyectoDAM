@@ -1,0 +1,65 @@
+<div>
+    <form>
+        <fieldset>
+            <legend><h3>Datos Generales </h3></legend>             
+               <div><label for="nombre">Nombre de la Peña:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            </div> 
+                <br>
+                <label for="cuota">Cuota miembro:</label>
+                <input type="number" name="cuota" id="cuota" placeholder="0.00" step="any">
+                <br>
+        </fieldset>
+        <fieldset>
+            <legend><h3>Reparto puntos</h3></legend>
+                <label>Puntos por victoria</label>
+                <input type="number" name="victoria" id="victoria" value="3">
+                <br>   
+                <label>Puntos por empate</label>
+                <input type="number" name="empate" id="empate" value="1">
+                <br>   
+                <label>Puntos por derrota</label>
+                <input type="number" name="derrota" id="derrota" value="0">
+                <br>          
+        </fieldset>
+        <fieldset>
+            <legend><h3>Parametros de sorteo</h3></legend>
+                <label>Sorteo basado en:</label>
+                <select name="sorteo" id="sorteo">
+                    <option value="vic-der">Ratio Victorias/Derrotas</option>               
+                    <option value="clasificacion">Clasificacion en la peña</option>
+                    <option value="sin-estadisticas">Sin atender estadísticas</option>  
+                    <option value="aleatorio">Completamente aleatorio</option> 
+                    <option value="preguntar">Preguntar siempre</option>   
+                </select>
+                <br>
+                <label>Equilibrar niveles</label>
+                <input type="checkbox" checked >
+                <br>
+                <label>Equilibrar posiciones</label>
+                <input type="checkbox" checked>
+                <br>
+                <label>Considerar incompatibilidades</label>
+                <input type="checkbox" checked>
+                <br>          
+        </fieldset>
+        <fieldset>
+            <legend><h3>Nombres de Equipos</h3></legend>
+            <label for="equipo1">Equipo 1:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <br>
+            <label for="equipo2">Equipo 2:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <br>
+            <label for="equipo3">Equipo 3:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <br>
+            <label for="equipo4">Equipo 4:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <br>
+            <label for="equipo5">Equipo 5:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <br>
+        </fieldset>
+    </form>
+</div>
