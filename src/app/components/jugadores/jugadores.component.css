@@ -1,0 +1,82 @@
+html{
+    min-width: 350px;
+}
+header{  
+    position: fixed;   
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #023E8A;
+    z-index: 1;
+   
+}   
+.titulo-cabecera{
+    text-align: center;
+    color: white;
+    margin-top: 18px;
+    font-size: 1.5em;
+}
+.container-buttons{
+    
+    position: relative;
+    top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.container-buttons button{    
+      margin-right: 5px;
+      background-color: #0096C7;
+      color: #fff;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 1px 1px 3px #023E8A;
+      font-size: x-small;
+}
+.izda{
+    float: left;
+}
+.dcha{
+    float:right;
+}
+.container-jugadores {
+    
+    position: relative;
+    justify-content: space-between;
+    top: 105px;
+    
+  }
+
+  .div-jugadores{
+    float: left;
+    width: 49%;
+    background-color: #0e5cc2;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    font-size: x-small;
+    color: white;
+    height: 45px;
+    margin: 1px;
+}
+.foto-jugador{
+    width: 25%;
+    float: left;
+    margin: 2px 2px 0 2px;
+} 
+
+footer button {
+    
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    background-color: #0096C7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #023E8A;
+  }
