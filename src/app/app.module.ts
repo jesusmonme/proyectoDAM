@@ -8,6 +8,7 @@ import { LoginComponent } from '././components/login/login.component';
 import { HomeComponent } from '././components/home/home.component';
 import { FormularioPenaComponent } from './components/formulario-pena/formulario-pena.component';
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
+import { CrearJugadorComponent } from './components/crear-jugador/crear-jugador.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { JugadoresComponent } from './components/jugadores/jugadores.component';
     LoginComponent,
     HomeComponent,
     FormularioPenaComponent,
-    JugadoresComponent
+    JugadoresComponent,
+    CrearJugadorComponent
    
   ],
   imports: [

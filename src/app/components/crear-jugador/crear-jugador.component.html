@@ -1,0 +1,53 @@
+<header> 
+    <div class="titulo-cabecera">Nuevo Jugador</div>  
+</header>
+<div class="separacion-header">
+    <form>
+        <fieldset>
+            <legend><h3>Datos Generales </h3></legend>             
+               <label for="nombre">Nombre Jugador:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>           
+                <br>
+                <label for="descripcion">Descripción:</label>
+                <input type="text" name="descripcion" id="descripcion">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <br>
+        </fieldset>
+        
+        <fieldset>
+            <legend><h3>Atributos</h3></legend>
+                <label>Posición:</label>
+                <select name="posicion" id="posicion">
+                    <option value="pivot">Pivot</option>               
+                    <option value="ala-pivot">Ala-Pivot</option>
+                    <option value="alero">Alero</option>  
+                    <option value="escolta">Escolta</option> 
+                    <option value="base">Base</option>   
+                </select>
+                <br>
+                <label>Nivel de Juego:</label>
+                <select name="nivel" id="nivel">
+                    <option value="muy-bueno">Muy Bueno</option>               
+                    <option value="bueno">Bueno</option> 
+                    <option value="normal">Normal</option> 
+                    <option value="malo">Malo</option> 
+                    <option value="muy-malo">Muy Malo</option>
+                </select>
+                <br>
+                <label>Incompatibilidad:</label>
+                <select name="incompatibilidad" id="incompatibilidad">
+                    <option value="nadie">Array jug y NADIE</option>               
+                    
+                </select>
+                <br>
+                <br>          
+        </fieldset>
+        
+        <button type="submit" (click)="crearJugador()">Crear</button>
+    </form>
+   
+</div>
+
+

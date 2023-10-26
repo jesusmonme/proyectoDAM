@@ -1,5 +1,6 @@
 html{
-    min-width: 350px;
+    margin: 0;
+    padding: 0;
 }
 header{  
     position: fixed;   
@@ -17,13 +18,22 @@ header{
     margin-top: 18px;
     font-size: 1.5em;
 }
+.titulo-cabecera-izda{
+    height: 20px;
+    text-align: left;
+}
+.titulo-cabecera-dcha{
+    height: 20px;
+    text-align: right;
+}
 .container-buttons{
-    
+    display:flex;
     position: relative;
     top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    justify-content: space-evenly;
+    
 }
+
 .container-buttons button{    
       margin-right: 5px;
       background-color: #0096C7;
@@ -34,6 +44,7 @@ header{
       cursor: pointer;
       box-shadow: 1px 1px 3px #023E8A;
       font-size: x-small;
+      
 }
 .izda{
     float: left;
@@ -41,25 +52,34 @@ header{
 .dcha{
     float:right;
 }
-.container-jugadores {
+section{
+  position: relative;
+  top:100px;
+  display: block;
+}
+.container-jugadores {   
+    display: flex;   
+    flex-wrap: wrap;
+    gap: 3px;
     
-    position: relative;
-    justify-content: space-between;
-    top: 105px;
+    
     
   }
 
   .div-jugadores{
-    float: left;
-    width: 49%;
+   
+    width: 175px;
     background-color: #0e5cc2;
     border-radius: 5px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 3px #023E8A;
     font-size: x-small;
     color: white;
-    height: 45px;
-    margin: 1px;
+    height: 45px;  
 }
+.div-jugadores:hover{
+    background-color: #0096C7;
+}
+
 .foto-jugador{
     width: 25%;
     float: left;
@@ -80,3 +100,7 @@ footer button {
     cursor: pointer;
     box-shadow: 1px 1px 5px #023E8A;
   }
+  footer button:active{
+    background-color: #023E8A;
+    color:aqua;
+}

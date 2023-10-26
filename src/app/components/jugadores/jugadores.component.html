@@ -1,31 +1,71 @@
-<header>      
-    <div class="titulo-cabecera">Jugadores</div>  
+<header>     
+    
+    <div class="titulo-cabecera">Lista de Jugadores</div>  
+    
     <div class="container-buttons">
-        <button class="button-cabecera izda">-</button >
-        <button class="button-cabecera izda">Sortear 2 equipos</button>
-        <button class="button-cabecera izda">+</button>
+        
+        <div>
+        <button class="button-cabecera izda" (click)="restarContador()">-</button >
+        <button class="button-cabecera izda">Sortear {{contadorEquipos}} equipos</button>
+        <button class="button-cabecera izda" (click)="sumarContador()">+</button>
+        </div>
         <button class="button-cabecera dcha">Últimos equipos</button>
     </div>
 </header>
-    
+<section>  
 <div class="container-jugadores">   
     <div class="div-jugadores" >        
         <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos (miembro)(ratio)(miembro)</span>
+        <span>{{name}}</span><br>
+        <span>Nivel :{{level}}  Pos:{{position[0]}}</span><br>
+        <span>Iconos {{iconoUltimoPartido[2]}}  -  {{iconoMiembro[0]}}  -  {{iconoRatio[1]}}</span>
     </div>
     <div class="div-jugadores" >        
         <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
         <span>Nombre</span><br>
         <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(miembro)(ratio)(ultim)</span>
+        <span>Iconos(1)(2)(3)</span>
     </div>
     <div class="div-jugadores" >        
         <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
         <span>Nombre</span><br>
         <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(miembro)(ratio)(ultim)</span>
+        <span>Iconos(1)(2)(3)</span>
+    </div>
+    <div class="div-jugadores" >        
+        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
+        <span>Nombre</span><br>
+        <span>Nivel :(a)  Pos: (AP)</span><br>
+        <span>Iconos(1)(2)(3)</span>
+    </div>
+    <div class="div-jugadores" >        
+        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
+        <span>Nombre</span><br>
+        <span>Nivel :(a)  Pos: (AP)</span><br>
+        <span>Iconos(1)(2)(3)</span>
+    </div>
+    <div class="div-jugadores" >        
+        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
+        <span>Nombre</span><br>
+        <span>Nivel :(a)  Pos: (AP)</span><br>
+        <span>Iconos(1)(2)(3)</span>
+    </div>
+    <div class="div-jugadores" >        
+        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
+        <span>Nombre</span><br>
+        <span>Nivel :(a)  Pos: (AP)</span><br>
+        <span>Iconos(1)(2)(3)</span>
     </div>
         
 </div>
+</section> 
+<!-- 
+    <table>
+    <tr><th >Nombre</th> </tr>
+    <tr><th>Nivel:(b)</th><th>Pos:(AP)</th></tr> 
+    <tr><th>A B C</th></tr>
+    </table> -->
+
+<footer>
+  <button>Crear Jugador</button>
+</footer>
