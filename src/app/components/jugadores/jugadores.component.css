@@ -18,18 +18,20 @@ header{
     margin-top: 18px;
     font-size: 1.5em;
 }
-.titulo-cabecera-izda{
-    height: 20px;
-    text-align: left;
+.container-info-equipo{
+    display: flex;
+    font-size: small;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    justify-content: space-around;
+    color: #022452;
 }
-.titulo-cabecera-dcha{
-    height: 20px;
-    text-align: right;
-}
+
 .container-buttons{
     display:flex;
     position: relative;
-    top: 20px;
+    top: 25px;
     justify-content: space-evenly;
     
 }
@@ -52,16 +54,13 @@ header{
 .dcha{
     float:right;
 }
-section{
-  position: relative;
-  top:100px;
-  display: block;
-}
+
 .container-jugadores {   
     display: flex;   
     flex-wrap: wrap;
     gap: 3px;
-    
+    position: relative;
+    top:120px;
     
     
   }

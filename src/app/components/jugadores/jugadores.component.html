@@ -1,7 +1,10 @@
 <header>     
     
     <div class="titulo-cabecera">Lista de Jugadores</div>  
-    
+    <div class="container-info-equipo">
+        <div>{{nombrePena}}</div>
+        <div> {{jugadoresSeleccionados}} Jugadores de {{jugadoresTotales}}</div>
+    </div>
     <div class="container-buttons">
         
         <div>
@@ -17,7 +20,7 @@
     <div class="div-jugadores" >        
         <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
         <span>{{name}}</span><br>
-        <span>Nivel :{{level}}  Pos:{{position[0]}}</span><br>
+        <span>Nivel :{{level[1]}}  Pos:{{position[0]}}</span><br>
         <span>Iconos {{iconoUltimoPartido[2]}}  -  {{iconoMiembro[0]}}  -  {{iconoRatio[1]}}</span>
     </div>
     <div class="div-jugadores" >        

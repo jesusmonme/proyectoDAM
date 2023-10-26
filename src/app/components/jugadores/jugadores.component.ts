@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./jugadores.component.css']
 })
 export class JugadoresComponent {
-  contadorEquipos:number=2;
-  jugadores=[];
-  name:string="Jesus";
-  level:string="A";
+  jugadores=['Kexu','Migue','Nacho','Tallon','Leandro'];
+  nombrePena='Nombre Peña';
+  jugadoresSeleccionados:number = 0;
+  contadorEquipos =2 ;
+  jugadoresTotales = this.jugadores.length + 1;
+  name:string = "Jesus";
+  level = ['A', 'B', 'C', 'D', 'E'];
   position = ['P', 'AP', 'A', 'E', 'B'];
   iconoUltimoPartido =['^','~','v'];
   iconoMiembro=['SI','NO'];
