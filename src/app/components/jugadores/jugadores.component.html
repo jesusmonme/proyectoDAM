@@ -5,63 +5,45 @@
         <div>{{nombrePena}}</div>
         <div> {{jugadoresSeleccionados}} Jugadores de {{jugadoresTotales}}</div>
     </div>
+</header>
+
+<section>
     <div class="container-buttons">
-        
+            
         <div>
         <button class="button-cabecera izda" (click)="restarContador()">-</button >
-        <button class="button-cabecera izda">Sortear {{contadorEquipos}} equipos</button>
+        <button class="button-cabecera izda" type="submit" value={{contadorEquipos}}>Sortear {{contadorEquipos}} equipos</button>
         <button class="button-cabecera izda" (click)="sumarContador()">+</button>
         </div>
         <button class="button-cabecera dcha">Últimos equipos</button>
     </div>
-</header>
-<section>  
-<div class="container-jugadores">   
-    <div class="div-jugadores" >        
-        <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>{{name}}</span><br>
-        <span>Nivel :{{level[1]}}  Pos:{{position[0]}}</span><br>
-        <span>Iconos {{iconoUltimoPartido[2]}}  -  {{iconoMiembro[0]}}  -  {{iconoRatio[1]}}</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
-    <div class="div-jugadores" >        
-        <div class="foto-jugador" ><img src="assets/square_PNG51.png" alt="Foto jug" style="height: 37px; margin: 2px;"></div>
-        <span>Nombre</span><br>
-        <span>Nivel :(a)  Pos: (AP)</span><br>
-        <span>Iconos(1)(2)(3)</span>
-    </div>
+</section>
+
+<section class="seccion-jugadores">  
+    <div class="container-jugadores">   
         
-</div>
+        <div *ngFor="let jugador of jugadores; let i=index" >   
+            <div *ngIf="jugadores[i].jugadorSeleccionado==false">
+                <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+                    <span id='nombre'>{{jugadores[i].nombre}}</span><br>
+                    <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
+                    <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
+                </div>
+            </div>
+            <div *ngIf="jugadores[i].jugadorSeleccionado">
+                <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+                    <span id='nombre'>{{jugadores[i].nombre}}</span><br>
+                    <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
+                    <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
+                </div>
+            </div>
+        </div>   
+    </div>
+
 </section> 
+
 <!-- 
     <table>
     <tr><th >Nombre</th> </tr>
@@ -70,5 +52,6 @@
     </table> -->
 
 <footer>
+    
   <button>Crear Jugador</button>
 </footer>

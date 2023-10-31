@@ -31,9 +31,8 @@ header{
 .container-buttons{
     display:flex;
     position: relative;
-    top: 25px;
-    justify-content: space-evenly;
-    
+    top: 80px;
+    justify-content: space-evenly;    
 }
 
 .container-buttons button{    
@@ -55,35 +54,47 @@ header{
     float:right;
 }
 
+
 .container-jugadores {   
     display: flex;   
     flex-wrap: wrap;
     gap: 3px;
     position: relative;
-    top:120px;
-    
-    
+    top:95px;
+    justify-content: center;
   }
 
-  .div-jugadores{
-   
+  .div-jugadores{   
     width: 175px;
     background-color: #0e5cc2;
     border-radius: 5px;
     box-shadow: 1px 1px 3px #023E8A;
     font-size: x-small;
-    color: white;
+    color: #022452;
     height: 45px;  
+    padding-top: 3px;
+}
+#nombre{
+    color:white;
+    
 }
 .div-jugadores:hover{
     background-color: #0096C7;
+}
+.div-jugador-seleccionado{  
+    background-color:green;
 }
 
 .foto-jugador{
     width: 25%;
     float: left;
     margin: 2px 2px 0 2px;
+    
 } 
+.foto-jugador img{
+    height: 37px;
+    margin-left: 2px;
+}
 
 footer button {
     
