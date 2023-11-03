@@ -9,6 +9,8 @@ import { HomeComponent } from '././components/home/home.component';
 import { FormularioPenaComponent } from './components/formulario-pena/formulario-pena.component';
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { CrearJugadorComponent } from './components/crear-jugador/crear-jugador.component';
+import { FormsModule } from '@angular/forms';
+import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { CrearJugadorComponent } from './components/crear-jugador/crear-jugador.
     HomeComponent,
     FormularioPenaComponent,
     JugadoresComponent,
-    CrearJugadorComponent
+    CrearJugadorComponent,
+    SortearEquiposComponent
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

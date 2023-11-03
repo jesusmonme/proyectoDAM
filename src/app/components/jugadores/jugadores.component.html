@@ -19,14 +19,14 @@
     </div>
 </section>
 
-<section class="seccion-jugadores">  
+<section>  
     <div class="container-jugadores">   
         
         <div *ngFor="let jugador of jugadores; let i=index" >   
             <div *ngIf="jugadores[i].jugadorSeleccionado==false">
                 <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].id)">
                     <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-                    <span id='nombre'>{{jugadores[i].nombre}}</span><br>
+                    <span class="'blanco">{{jugadores[i].nombre}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
                 </div>
@@ -34,7 +34,7 @@
             <div *ngIf="jugadores[i].jugadorSeleccionado">
                 <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].id)">
                     <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-                    <span id='nombre'>{{jugadores[i].nombre}}</span><br>
+                    <span class="blanco">{{jugadores[i].nombre}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
                 </div>
@@ -43,13 +43,6 @@
     </div>
 
 </section> 
-
-<!-- 
-    <table>
-    <tr><th >Nombre</th> </tr>
-    <tr><th>Nivel:(b)</th><th>Pos:(AP)</th></tr> 
-    <tr><th>A B C</th></tr>
-    </table> -->
 
 <footer>
     
