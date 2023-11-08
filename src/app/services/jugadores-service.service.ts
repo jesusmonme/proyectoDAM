@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Jugador } from '../components/jugadores/jugador.model';
+import { Jugador } from '../modelos/jugador.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,7 @@ export class JugadoresServiceService {
   }
   
   jugadores:Jugador[];
+  //todo borrar cuando la base datos genere los ID
   idContador:number=6;
   
 
@@ -26,12 +27,16 @@ export class JugadoresServiceService {
     this.jugadores.push(jugador);
     //todo borrar esto cuando lo haga la base de datos
     this.idContador++;
+    alert('Jugador: '+jugador.nombre+' creado');
     
   }
   borrarJugador(jugador:Jugador){
     this.jugadores.splice(jugador.id-1,1);
   }
 
+  editarJugador(){
+
+  }
   
 
 }

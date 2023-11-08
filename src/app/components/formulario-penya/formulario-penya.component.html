@@ -6,23 +6,25 @@
         <fieldset>
             <legend><h3>Datos Generales </h3></legend>             
                <label for="nombre">Nombre de la Peña:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="nombre">
+                <br>
+                <label for="nombreBD">Nombre en la Base de Datos:</label>
+                <input type="text" name="nombreBD" id="nombreBD" placeholder="NombreBD" [(ngModel)]="nombreBD">
                 <br>
                 <label for="cuota">Cuota miembro:</label>
-                <input type="number" name="cuota" id="cuota" placeholder="0.00" step="any">
+                <input type="number" name="cuota" id="cuota" placeholder="0.00" step="any" [(ngModel)]="cuota">
                 <br>
         </fieldset>
         <fieldset>
             <legend><h3>Reparto puntos</h3></legend>
                 <label>Puntos por victoria</label>
-                <input type="number" name="victoria" id="victoria" value="3">
+                <input type="number" name="victoria" id="victoria"  [(ngModel)]="puntosVictoria">
                 <br>   
                 <label>Puntos por empate</label>
-                <input type="number" name="empate" id="empate" value="1">
+                <input type="number" name="empate" id="empate"  [(ngModel)]="puntosEmpate">
                 <br>   
                 <label>Puntos por derrota</label>
-                <input type="number" name="derrota" id="derrota" value="0">
+                <input type="number" name="derrota" id="derrota" [ngModel]="puntosDerrota">
                 <br>          
         </fieldset>
         <fieldset>
@@ -37,13 +39,14 @@
                 </select>
                 <br>
                 <label>Equilibrar niveles</label>
-                <input type="checkbox" checked >
+                <input type="checkbox" name="equilibrarNiveles" [(ngModel)]="equilibrarNiveles" >
                 <br>
                 <label>Equilibrar posiciones</label>
-                <input type="checkbox" checked>
+                <input type="checkbox" name="equilibrarPosiciones" [(ngModel)]="equilibrarPosiciones">
                 <br>
                 <label>Considerar incompatibilidades</label>
-                <input type="checkbox" checked>
+                <input type="checkbox" name="considerarIncompatibilidades"[(ngModel)]="considerarIncompatibilidades">
+                <div>{{considerarIncompatibilidades}}</div>
                 <br>          
         </fieldset>
         <fieldset>
@@ -65,7 +68,8 @@
             <br>
         </fieldset>
         
-        <button type="submit">Crear</button>
+        <button type="submit" (click)="crearPena()">Crear</button>
+        <button (click)="salir()">Salir</button>
     </form>
    
 </div>

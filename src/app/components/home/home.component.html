@@ -3,87 +3,17 @@
             <div class="titulo-cabecera">Listado de Peñas</div>  
     </header>
     <div >
-            <div class="div-padre-relativo-de-absolute">
+        <div *ngFor="let penya of penyas; let i=index" >
+            <div class="div-padre-relativo-de-absolute div-penyas" (click)="irApenya()">
                 <!-- poner maximo caracteres nombre -->
-                <div class="div-posic-absolute-arriba-izda" >RACA</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
+                <div class="div-posic-absolute-arriba-izda" >{{penyas[i].nombre}}</div>
+               <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penyas[i].jugadores.length}} partidos <br>
                     Modificado
                 </div>
             </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >CAZUELA</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Barsa</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Madrid</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Unicaja</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Coviran</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Zaragoza</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Baskonia</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >Joventut</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >CAZUELA</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >RACA</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
-            
-            <div class="div-padre-relativo-de-absolute">
-                <div class="div-posic-absolute-arriba-izda" >CAZUELA</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: 21, 0 partidos <br>
-                    Modificado
-                </div>
-            </div>
+        </div>                
     </div>
     <footer>        
-        <button>Crear Peña</button>        
+        <button (click)="crearPena()">Crear Peña</button>        
     </footer>   
 </body>

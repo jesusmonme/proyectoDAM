@@ -83,3 +83,11 @@ button {
     cursor: pointer;
     box-shadow: 1px 1px 5px #023E8A;
   }
+
+.div-penyas:hover{
+    background-color: #0096C7;
+    
+}
+.div-penyas-seleccionado{  
+    background-color:green;
+}

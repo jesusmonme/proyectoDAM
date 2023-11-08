@@ -6,18 +6,30 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormularioPenaComponent } from './components/formulario-pena/formulario-pena.component';
+import { FormularioPenyaComponent } from './components/formulario-penya/formulario-penya.component';
 import { JugadoresComponent } from './components/jugadores/jugadores.component';
 import { CrearJugadorComponent } from './components/crear-jugador/crear-jugador.component';
 import { FormsModule } from '@angular/forms';
 import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes:Routes=[
+  {path:"", component:LoginComponent},
+  {path:"jugadores", component:JugadoresComponent},
+  {path:"crearJugador", component:CrearJugadorComponent},
+  {path:"formularioPeña", component:FormularioPenyaComponent},
+  {path:"login", component:LoginComponent},
+  {path:"home", component:HomeComponent},
+  {path:"sorteo", component:SortearEquiposComponent}
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    FormularioPenaComponent,
+    FormularioPenyaComponent,
     JugadoresComponent,
     CrearJugadorComponent,
     SortearEquiposComponent
@@ -26,7 +38,8 @@ import { SortearEquiposComponent } from './components/sortear-equipos/sortear-eq
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
