@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../jugadores/jugador.model';
+import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 
 @Component({
   selector: 'app-crear-jugador',
   templateUrl: './crear-jugador.component.html',
   styleUrls: ['./crear-jugador.component.css']
 })
-export class CrearJugadorComponent {
-    jugadores=[
-    new Jugador(1,'Jesús', 'A','AP',true),
-    new Jugador(2,'Nacho', 'A','A',true),
-    new Jugador(3,'Tallon', 'B','B',true),
-    new Jugador(4,'Carlos', 'A','B',true),
-    new Jugador(5,'Dani', 'B','P',true),
-  ];
+export class CrearJugadorComponent implements OnInit {
+  constructor(private servicioJugadores:JugadoresServiceService){
 
+  }
+  ngOnInit(): void {
+    this.jugadores=this.servicioJugadores.jugadores;
+    
+  }
+  jugadores:Jugador[];
   nombre:string='';
   posicion:string='';
   descripcion:string='';
@@ -29,10 +30,22 @@ export class CrearJugadorComponent {
      }
      else{
     let jugador1=new Jugador(1,this.nombre,this.nivel,this.posicion,this.miembro,this.descripcion,this.incompatibilidad,this.email);
-    this.jugadores.push(jugador1);
+    this.servicioJugadores.agregarJugador(jugador1);
+    // this.servicioJugadores.jugadoresTotales++;
+    this.limpiarDatos();
     console.log(this.jugadores);
     console.log(jugador1);
      }
+    }
+
+    limpiarDatos(){
+      this.nombre='';
+      this.posicion='';
+      this.descripcion='';
+      this.email='';
+      this.nivel='';
+      this.incompatibilidad='';
+      this.miembro=true;
     }
   
 }

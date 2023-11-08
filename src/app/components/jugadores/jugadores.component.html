@@ -3,7 +3,7 @@
     <div class="titulo-cabecera">Lista de Jugadores</div>  
     <div class="container-info-equipo">
         <div>{{nombrePena}}</div>
-        <div> {{jugadoresSeleccionados}} Jugadores de {{jugadoresTotales}}</div>
+        <div> {{jugadoresSeleccionados}} Jugadores de {{jugadores.length}}</div>
     </div>
 </header>
 
@@ -25,15 +25,19 @@
         <div *ngFor="let jugador of jugadores; let i=index" >   
             <div *ngIf="jugadores[i].jugadorSeleccionado==false">
                 <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].id)">
-                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+
+                    <!-- TODO cambiar metodo borrar jugador al icono borrar -->
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
                     <span class="'blanco">{{jugadores[i].nombre}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
                 </div>
             </div>
+            
             <div *ngIf="jugadores[i].jugadorSeleccionado">
                 <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].id)">
-                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+                     <!-- TODO cambiar metodo borrar jugador al icono borrar -->
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
                     <span class="blanco">{{jugadores[i].nombre}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>

@@ -13,11 +13,12 @@ export class Jugador{
     descripcion:string;
     incompatibilidad:string='';
     email:string='';
-    
+   
     
     // Si pongo ? para que sea opcional me da errores en la asignacion de variable
     constructor(id:number,nombre:string, nivel:string, posicion:string,miembro:boolean,
         descripcion?:string,incompatibilidad?:string,email?:string){
+      
         this.id=id;
         this.nombre=nombre;
         this.nivel=nivel;

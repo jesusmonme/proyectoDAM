@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from './jugador.model';
 import { Equipo } from './equipo.model';
+import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 
 @Component({
   selector: 'app-jugadores',
@@ -8,29 +9,22 @@ import { Equipo } from './equipo.model';
   styleUrls: ['./jugadores.component.css']
 })
 export class JugadoresComponent implements OnInit{
-  ngOnInit(): void {
-    this.jugadores=[
-      new Jugador(1,'Jesús', 'A','AP',true),
-      new Jugador(2,'Nacho', 'A','A',true),
-      new Jugador(3,'Tallon', 'B','B',true),
-      new Jugador(4,'Carlos', 'A','B',true),
-      new Jugador(5,'Dani', 'B','P',true),
-    ];
-   console.log(this.jugadores);
-   this.equipos=[
-      new Equipo (1,"equipo1",([this.jugadores[0],this.jugadores[1]])),
-      new Equipo (2,"equipo2",([this.jugadores[2],this.jugadores[3]]))
-   ];
-   this.jugadoresTotales= this.jugadores.length;
-   console.log(this.equipos);
-   console.log('jugadores totaleS: '+this.jugadoresTotales);
+  
+  constructor(private servicioJugadores:JugadoresServiceService){
+
   }
   
-  jugadores:Jugador[]=[];
+  ngOnInit(): void {
+    this.jugadores=this.servicioJugadores.jugadores;
+    
+
+  }
+  
+  jugadores:Jugador[];
   nombrePena='Nombre Peña';
   jugadoresSeleccionados:number = 0;
   contadorEquipos =2 ;
-  jugadoresTotales :number= 0;
+
   
   //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
@@ -49,6 +43,7 @@ export class JugadoresComponent implements OnInit{
 sumarContador(){
   if(this.contadorEquipos>=2){
   this.contadorEquipos = ++this.contadorEquipos;
+  
   }
   else{
     this.contadorEquipos=2;
@@ -65,7 +60,8 @@ restarContador(){
 añadirJugadores(){
 
 }
-seleccionarJugador(idJugador:number){
+
+
 
 
 
@@ -81,6 +77,15 @@ seleccionarJugador(idJugador:number){
        this.jugadoresSeleccionados--;   
     }
 }
-console.log(jugadorBuscado);
+console.log('jugador buscado:'+jugadorBuscado);
 }
+borrarJugador(jugadorAborrar:Jugador){
+  
+  let confirmacion=confirm("seguro que quieres eliminar al jugador: "+ jugadorAborrar.nombre + '?');
+  if(confirmacion){
+    this.servicioJugadores.borrarJugador(jugadorAborrar);
+  }
 }
+
+}
+

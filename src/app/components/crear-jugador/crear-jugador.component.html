@@ -42,7 +42,7 @@
                 <!-- TODO de que tipo es incompatibilidad,que valor tiene que tener, boolean, el id del incompatible -->
                 <label>Incompatibilidad:</label>
                 <select name="incompatibilidad" id="incompatibilidad" [(ngModel)]="incompatibilidad">
-                    <option value="" selected></option> 
+                    <option value="" selected>Nadie</option> 
                     <option *ngFor="let jugador of jugadores" value={{jugador.id}}>{{jugador.nombre}}</option>                
                 </select>
                 <br>
