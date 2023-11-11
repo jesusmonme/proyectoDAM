@@ -13,6 +13,7 @@ export class JugadoresServiceService {
       new Jugador(3,'Tallon', 'B','B',true),
       new Jugador(4,'Carlos', 'A','B',true),
       new Jugador(5,'Dani', 'B','P',true),
+      new Jugador(6,'Juan', 'B','P',true)
     ]
    
   }

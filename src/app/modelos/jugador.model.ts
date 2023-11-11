@@ -31,18 +31,25 @@ export class Jugador{
     // }
     constructor(
         public id:number=0,
+
         public nombre:string='',
+
         public nivel:string='',
+
         public posicion:string='',
+
         public miembro:boolean,
-        public descripcion?:string,
+public descripcion?:string,
         public incompatibilidad?:string,
         public email?:string,
         public partidosGanados:number=0,
+
         public partidosPerdidos:number=0,
+
         public partidosEmpatados:number=0,
+
         public ratio:number=0,
-        public ultimoPartido?:string,
+public ultimoPartido?:string,
         public jugadorSeleccionado:boolean=false){}
 
 }

@@ -9,49 +9,25 @@
 </section>
 
 <section class="equipos">  
-    <div class="container-jugadores">  
-        <div class="div-jugadores div-equipo">
-            <span>HOla</span>
-        </div> 
-        <div id=i class="div-jugadores">
-            <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-            <span class="blanco">Nombre Jugador</span><br>
-            <span>Pos:((AP)) Ratio: ((ratio))</span><br>
-            <span>Ultim: ((No ha jugado aun)) - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
+    <div class="container-jugadores">
+        <div *ngFor="let equipo of equipos; let indEquipos=index"> 
+            <div class="div-jugadores div-equipo">
+                <div>{{equipos[indEquipos].nombre}}</div>
+            </div> 
+                <div *ngFor="let jugador of this.equipos[indEquipos].jugadores; let i=index">
+                    <div id=i class="div-jugadores">
+                        <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+                        <span class="blanco">{{equipos[indEquipos].jugadores[i].nombre}}</span><br>
+                        <span>Pos:{{equipos[indEquipos].jugadores[i].posicion}} Ratio:{{equipos[indEquipos].jugadores[i].ratio}}</span><br>
+                        <span>Ultim:{{equipos[indEquipos].jugadores[i].ultimoPartido}} - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
+                    </div>
+                </div>             
         </div>
-        <div id=i class="div-jugadores">
-            <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-            <span class="blanco">Nombre Jugador</span><br>
-            <span>Pos:((AP)) Ratio: ((ratio))</span><br>
-            <span>Ult: ((No ha jugado aun)) - Vic:((%)) -  Emp:((%)) - Der:((%))</span>
-        </div>
-        <div id=i class="div-jugadores">
-            <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-            <span class="blanco">Nombre Jugador</span><br>
-            <span>Pos:((AP)) Ratio: ((ratio))</span><br>
-            <span>Ultim: ((No ha jugado aun)) - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
-        </div>
-    </div>
-
-    <div class="container-jugadores">   
-        <div id=i class="div-jugadores">
-            <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-            <span class="blanco">Nombre Jugador</span><br>
-            <span>Pos:((AP)) Ratio: ((ratio))</span><br>
-            <span>Ultim: ((No ha jugado aun)) - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
-        </div>
-        <div id=i class="div-jugadores">
-            <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-            <span class="blanco">Nombre Jugador</span><br>
-            <span>Pos:((AP)) Ratio: ((ratio))</span><br>
-            <span>Ult: ((No ha jugado aun)) - Vic:((%)) -  Emp:((%)) - Der:((%))</span>
-        </div>
-    
+           
     </div>
 
     </section>
 
 <footer>
     
-  <button>Crear Jugador</button>
 </footer>

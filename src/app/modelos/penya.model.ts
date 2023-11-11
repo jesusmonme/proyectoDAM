@@ -9,16 +9,18 @@ export class Penya{
         public puntosVictoria:number,
         public puntosEmpate:number,
         public puntosDerrota:number,
-        // //TODO valorar si numerico o string el sorteo
+        //TODO valorar si numerico o string el sorteo
         public sorteo:number,
         public equilibrarNiveles:boolean,
         public equilibrarPosiciones:boolean,
         public considerarIncompatibilidades:boolean,
+        public jugadores:Jugador[]=[],
         public nombreEquipos?:string[],
         public cuota?:number,
-        public jugadores:Jugador[]=[]
+        
          ){
-
+        //TODO ver si esto hace falta o tiene sentido
+        
     }
 
 }
