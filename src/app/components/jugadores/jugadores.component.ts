@@ -3,6 +3,7 @@ import { Jugador } from '../../modelos/jugador.model';
 import { Equipo } from '../../modelos/equipo.model';
 import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 import { Router } from '@angular/router';
+import { PenyasServiceService } from 'src/app/services/penyas-service.service';
 
 @Component({
   selector: 'app-jugadores',
@@ -11,33 +12,42 @@ import { Router } from '@angular/router';
 })
 export class JugadoresComponent implements OnInit {
 
-  constructor(private servicioJugadores: JugadoresServiceService, private route:Router) {
+  constructor(private servicioJugadores: JugadoresServiceService,
+    private servicioPenyas: PenyasServiceService,
+    private route: Router) {
 
   }
 
   ngOnInit(): void {
-    this.jugadores = this.servicioJugadores.jugadores;
+    // this.jugadores = this.servicioJugadores.jugadores;
+    this.jugadores = this.servicioPenyas.penyas[0].jugadores;
 
 
   }
 
   jugadores: Jugador[];
-  nombrePena = 'Nombre Peña';
+  //TODO corregir cuando pasemos un id al indice array peñas
+  nombrePenya = this.servicioPenyas.penyas[0].nombre;
   jugadoresSeleccionados: number = 0;
   contadorEquipos = 2;
-
+  
+  jugadoresConvocados: Jugador[] = [];
 
   //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
-  equipos: Equipo[] = [];
-
+  
+  equipo1:Equipo=new Equipo([],1,'Equipo1');
+  equipo2:Equipo=new Equipo([],2,'Equipo2');;
+  equipos: Equipo[] = [this.equipo1,this.equipo2];
 
   // ver como asociar imagenes a un valor, estas variables no se si al final las usare
   iconoUltimoPartido = [1, 2, 3];
   iconoMiembro = ['SI', 'NO'];
   iconoRatio = [1, 2, 3];
+  sorteo:boolean;
 
   sumarContador() {
+    //TODO si al final no hay tiempo para que puedan ser mas de 2equipos, mandar alerta "version premium"
     if (this.contadorEquipos >= 2) {
       this.contadorEquipos = ++this.contadorEquipos;
 
@@ -55,7 +65,7 @@ export class JugadoresComponent implements OnInit {
     }
   }
   crearJugadores() {
-      this.route.navigate(['crearJugador']);
+    this.route.navigate(['crearJugador']);
   }
 
   seleccionarJugador(idJugador: number) {
@@ -64,10 +74,16 @@ export class JugadoresComponent implements OnInit {
       if (jugadorBuscado.jugadorSeleccionado == false) {
         jugadorBuscado.jugadorSeleccionado = true;
         this.jugadoresSeleccionados++;
+
+        this.jugadoresConvocados.push(jugadorBuscado);
+
       }
       else {
         jugadorBuscado.jugadorSeleccionado = false;
         this.jugadoresSeleccionados--;
+        this.jugadoresConvocados = this.jugadoresConvocados.filter(j => j.id !== jugadorBuscado.id);
+
+
       }
     }
     console.log('jugador buscado:' + jugadorBuscado);
@@ -77,8 +93,27 @@ export class JugadoresComponent implements OnInit {
     let confirmacion = confirm("seguro que quieres eliminar al jugador: " + jugadorAborrar.nombre + '?');
     if (confirmacion) {
       this.servicioJugadores.borrarJugador(jugadorAborrar);
+      this.jugadoresSeleccionados--;
     }
   }
+
+  sortearEquipos() {
+    //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
+    this.sorteo=true;
+
+    for(let i=0;i<this.jugadoresConvocados.length;i++){
+      if(this.jugadoresConvocados.length % i !=0){
+        this.equipo1.jugadores.push(this.jugadoresConvocados[i]);
+      }
+      else{
+        this.equipo2.jugadores.push(this.jugadoresConvocados[i]);
+      }
+
+    }
+    // this.route.navigate(['sorteo']);
+  }
+
+
 
 }
 

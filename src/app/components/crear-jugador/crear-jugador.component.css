@@ -11,8 +11,13 @@ header{
 .titulo-cabecera{
     text-align: center;
     color: white;
-    margin-top: 18px;
-    font-size: 1.5em;
+    margin-top: 6px;
+    font-size: 1.3em;
+}
+.titulo-penya {
+    font-size: 0.75em;
+    margin: 0;
+    color: #48cae4;
 }
 .separacion-header{
     margin-top:50px;

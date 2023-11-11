@@ -2,7 +2,7 @@
     
     <div class="titulo-cabecera">Lista de Jugadores</div>  
     <div class="container-info-equipo">
-        <div>{{nombrePena}}</div>
+        <div>{{nombrePenya}}</div>
         <div> {{jugadoresSeleccionados}} Jugadores de {{jugadores.length}}</div>
     </div>
 </header>
@@ -12,7 +12,7 @@
             
         <div>
         <button class="button-cabecera izda" (click)="restarContador()">-</button >
-        <button class="button-cabecera izda" type="submit" value={{contadorEquipos}}>Sortear {{contadorEquipos}} equipos</button>
+        <button class="button-cabecera izda" (click)="sortearEquipos()">Sortear {{contadorEquipos}} equipos</button>
         <button class="button-cabecera izda" (click)="sumarContador()">+</button>
         </div>
         <button class="button-cabecera dcha">Últimos equipos</button>
@@ -52,3 +52,6 @@
     
   <button (click)="crearJugadores()">Crear Jugador</button>
 </footer>
+<div *ngIf="sorteo">
+    <app-sortear-equipos [equipos]="equipos"></app-sortear-equipos>
+</div>

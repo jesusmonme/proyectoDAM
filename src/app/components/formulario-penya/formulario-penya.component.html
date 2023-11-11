@@ -1,3 +1,5 @@
+<app-crear-jugador *ngIf="modalCrearJugador" [penyaCreada]="penyaCreada"></app-crear-jugador>
+<div *ngIf="modalCrearJugador==false">
 <header> 
     <div class="titulo-cabecera">Configuración de la Peña</div>  
 </header>
@@ -17,13 +19,13 @@
         </fieldset>
         <fieldset>
             <legend><h3>Reparto puntos</h3></legend>
-                <label>Puntos por victoria</label>
+                <label  for="victoria">Puntos por victoria</label>
                 <input type="number" name="victoria" id="victoria"  [(ngModel)]="puntosVictoria">
                 <br>   
-                <label>Puntos por empate</label>
+                <label for="empate">Puntos por empate</label>
                 <input type="number" name="empate" id="empate"  [(ngModel)]="puntosEmpate">
                 <br>   
-                <label>Puntos por derrota</label>
+                <label for="derrota">Puntos por derrota</label>
                 <input type="number" name="derrota" id="derrota" [ngModel]="puntosDerrota">
                 <br>          
         </fieldset>
@@ -51,20 +53,20 @@
         </fieldset>
         <fieldset>
             <legend><h3>Nombres de Equipos</h3></legend>
-            <label for="equipo1">Equipo 1:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <label for="nombreEquipo1">Equipo 1:</label>
+            <input type="text" name="nombreEquipo1" id="nombreEquipo1" placeholder="Equipo1..."[(ngModel)]="nombreEquipo1" >
             <br>
-            <label for="equipo2">Equipo 2:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <label for="nombreEquipo2">Equipo 2:</label>
+            <input type="text" name="nombreEquipo2" id="nombreEquipo2" placeholder="Equipo2..."[(ngModel)]="nombreEquipo2" >
             <br>
-            <label for="equipo3">Equipo 3:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <label for="nombreEquipo3">Equipo 3:</label>
+            <input type="text" name="nombreEquipo3" id="nombreEquipo3" placeholder="Equipo3..."[(ngModel)]="nombreEquipo3" >
             <br>
-            <label for="equipo4">Equipo 4:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <label for="nombreEquipo4">Equipo 4:</label>
+            <input type="text" name="nombreEquipo4" id="nombreEquipo4" placeholder="Equipo4..."[(ngModel)]="nombreEquipo4" >
             <br>
-            <label for="equipo5">Equipo 5:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Color,blanco,equipo1,equipo2...">
+            <label for="nombreEquipo5">Equipo 5:</label>
+            <input type="text" name="nombreEquipo5" id="nombreEquipo5" placeholder="Equipo5..."[(ngModel)]="nombreEquipo5" >
             <br>
         </fieldset>
         
@@ -73,4 +75,4 @@
     </form>
    
 </div>
-
+</div>

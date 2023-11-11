@@ -4,7 +4,7 @@
     </header>
     <div >
         <div *ngFor="let penya of penyas; let i=index" >
-            <div class="div-padre-relativo-de-absolute div-penyas" (click)="irApenya()">
+            <div id={{penyas[i].idPenya}} class="div-padre-relativo-de-absolute div-penyas" (click)="irApenya()">
                 <!-- poner maximo caracteres nombre -->
                 <div class="div-posic-absolute-arriba-izda" >{{penyas[i].nombre}}</div>
                <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penyas[i].jugadores.length}} partidos <br>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Jugador } from '../../modelos/jugador.model';
 import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 import { Router } from '@angular/router';
+import { Penya } from 'src/app/modelos/penya.model';
 
 @Component({
   selector: 'app-crear-jugador',
@@ -16,6 +17,8 @@ export class CrearJugadorComponent implements OnInit {
     this.jugadores = this.servicioJugadores.jugadores;
 
   }
+  @Input() penyaCreada:Penya;
+
   jugadores: Jugador[];
   nombre: string = '';
   posicion: string = '';
@@ -30,7 +33,8 @@ export class CrearJugadorComponent implements OnInit {
       alert('El campo nombre debe estar relleno');
     }
     else {
-      let jugador1 = new Jugador(1, this.nombre, this.nivel, this.posicion, this.miembro, this.descripcion, this.incompatibilidad, this.email);
+      //TODO manejar el id de la BD
+      let jugador1 = new Jugador(1, this.nombre, this.nivel, this.posicion, this.miembro, this.incompatibilidad, this.email,this.descripcion,);
       this.servicioJugadores.agregarJugador(jugador1);
       // this.servicioJugadores.jugadoresTotales++;
       this.limpiarDatos();
