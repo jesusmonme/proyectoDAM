@@ -20,7 +20,7 @@ export class JugadoresServiceService {
   
   jugadores:Jugador[];
   //todo borrar cuando la base datos genere los ID
-  idContador:number=6;
+  idContador:number=7;
   
 
   agregarJugador(jugador:Jugador){

@@ -15,6 +15,8 @@ export class SortearEquiposComponent {
 
   } 
   @Input() equipos:Equipo[];
+  @Input() modalSorteo:boolean;
+  
   
 
 }

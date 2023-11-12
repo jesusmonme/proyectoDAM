@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.penyas=this.penyaService.penyas;
-    console.log(this.penyas[0].jugadores?.length + this.penyas[0].nombre)
+    console.log(this.penyas[0].jugadores?.length + this.penyas[0].nombrePenya)
   }
 
 

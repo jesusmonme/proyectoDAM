@@ -1,4 +1,5 @@
-<app-crear-jugador *ngIf="modalCrearJugador" [penyaCreada]="penyaCreada"></app-crear-jugador>
+
+<app-crear-jugador *ngIf="modalCrearJugador" ></app-crear-jugador>
 <div *ngIf="modalCrearJugador==false">
 <header> 
     <div class="titulo-cabecera">Configuración de la Peña</div>  
@@ -8,7 +9,7 @@
         <fieldset>
             <legend><h3>Datos Generales </h3></legend>             
                <label for="nombre">Nombre de la Peña:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="nombre">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="nombrePenya">
                 <br>
                 <label for="nombreBD">Nombre en la Base de Datos:</label>
                 <input type="text" name="nombreBD" id="nombreBD" placeholder="NombreBD" [(ngModel)]="nombreBD">
@@ -26,13 +27,14 @@
                 <input type="number" name="empate" id="empate"  [(ngModel)]="puntosEmpate">
                 <br>   
                 <label for="derrota">Puntos por derrota</label>
-                <input type="number" name="derrota" id="derrota" [ngModel]="puntosDerrota">
+                <input type="number" name="derrota" id="derrota" [(ngModel)]="puntosDerrota">
                 <br>          
         </fieldset>
         <fieldset>
             <legend><h3>Parametros de sorteo</h3></legend>
                 <label>Sorteo basado en:</label>
-                <select name="sorteo" id="sorteo">
+                <select name="sorteo" id="sorteo" [(ngModel)]="sorteo">
+                    <!-- TODO ver valores select si poner a numerico -->
                     <option value="vic-der">Ratio Victorias/Derrotas</option>               
                     <option value="clasificacion">Clasificacion en la peña</option>
                     <option value="sin-estadisticas">Sin atender estadísticas</option>  

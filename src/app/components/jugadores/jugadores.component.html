@@ -1,8 +1,11 @@
+<app-sortear-equipos *ngIf="modalSorteo" [equipos]="equipos" [modalSorteo]="modalSorteo"></app-sortear-equipos>
+<footer class="footer button"><button *ngIf="modalSorteo" (click)="volver()">Volver</button></footer>
+
+<div *ngIf="modalSorteo==false" >
 <header>     
-    
-    <div class="titulo-cabecera">Lista de Jugadores</div>  
+    <div class="titulo-cabecera">Jugadores de {{penya.nombrePenya}}</div> 
     <div class="container-info-equipo">
-        <div>{{nombrePenya}}</div>
+        <div>{{penya.nombrePenya}}</div>
         <div> {{jugadoresSeleccionados}} Jugadores de {{jugadores.length}}</div>
     </div>
 </header>
@@ -48,10 +51,10 @@
 
 </section> 
 
-<footer>
+<footer class="footer button">
     
-  <button (click)="crearJugadores()">Crear Jugador</button>
+  <button (click)="crearJugadores()">Crear Jugador</button> 
 </footer>
-<div *ngIf="sorteo">
-    <app-sortear-equipos [equipos]="equipos"></app-sortear-equipos>
 </div>
+
+    

@@ -1,10 +1,10 @@
 import { Jugador } from "./jugador.model";
 
 export class Penya{
-
+  
     constructor(
         public idPenya:number,
-        public nombre:string, 
+        public nombrePenya:string, 
         public nombreBD:string,
         public puntosVictoria:number,
         public puntosEmpate:number,

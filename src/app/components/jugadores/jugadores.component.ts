@@ -4,6 +4,7 @@ import { Equipo } from '../../modelos/equipo.model';
 import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 import { Router } from '@angular/router';
 import { PenyasServiceService } from 'src/app/services/penyas-service.service';
+import { Penya } from 'src/app/modelos/penya.model';
 
 @Component({
   selector: 'app-jugadores',
@@ -21,13 +22,16 @@ export class JugadoresComponent implements OnInit {
   ngOnInit(): void {
     // this.jugadores = this.servicioJugadores.jugadores;
     this.jugadores = this.servicioPenyas.penyas[0].jugadores;
-
+    this.penya=this.servicioPenyas.penyas[0];
 
   }
 
   jugadores: Jugador[];
+  penya:Penya;
+  modalSorteo=false;
+
   //TODO corregir cuando pasemos un id al indice array peñas
-  nombrePenya = this.servicioPenyas.penyas[0].nombre;
+  nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
   jugadoresSeleccionados: number = 0;
   contadorEquipos = 2;
   
@@ -37,14 +41,14 @@ export class JugadoresComponent implements OnInit {
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
   
   equipo1:Equipo=new Equipo([],1,'Equipo1');
-  equipo2:Equipo=new Equipo([],2,'Equipo2');;
+  equipo2:Equipo=new Equipo([],2,'Equipo2');
   equipos: Equipo[] = [this.equipo1,this.equipo2];
 
   // ver como asociar imagenes a un valor, estas variables no se si al final las usare
   iconoUltimoPartido = [1, 2, 3];
   iconoMiembro = ['SI', 'NO'];
   iconoRatio = [1, 2, 3];
-  sorteo:boolean;
+ 
 
   sumarContador() {
     //TODO si al final no hay tiempo para que puedan ser mas de 2equipos, mandar alerta "version premium"
@@ -99,8 +103,8 @@ export class JugadoresComponent implements OnInit {
 
   sortearEquipos() {
     //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
-    this.sorteo=true;
-
+   
+    this.modalSorteo=true;
     for(let i=0;i<this.jugadoresConvocados.length;i++){
       if(this.jugadoresConvocados.length % i !=0){
         this.equipo1.jugadores.push(this.jugadoresConvocados[i]);
@@ -112,7 +116,14 @@ export class JugadoresComponent implements OnInit {
     }
     // this.route.navigate(['sorteo']);
   }
-
+  volver(){
+    this.modalSorteo=false;
+    //TODO ver si es necesario
+    //vaciar equipos al volver del sorteo 
+    this.equipo1=new Equipo([],1,'Equipo1');
+    this.equipo2=new Equipo([],2,'Equipo2');
+    this.equipos=[this.equipo1,this.equipo2];
+  }
 
 
 }

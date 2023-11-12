@@ -1,7 +1,8 @@
 <header> 
     <div class="titulo-cabecera">
         Nuevo Jugador
-        <div class="titulo-penya" >Peña: {{penyaCreada.nombre}}</div>
+        <!-- TODO Ver como meter nombre peña viniendo de formulario y desde peñas -->
+        <div class="titulo-penya" >Peña: </div>
     </div>  
 
 </header>
@@ -11,7 +12,7 @@
         <fieldset>
             <legend><h3>Datos Generales </h3></legend>             
                <label for="nombre">Nombre Jugador:</label>
-                <input  type="text" name="nombre" id="nombre" placeholder="Nombre" required [(ngModel)]="nombre">           
+                <input  type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="nombre">           
                 <br>
                 <label for="descripcion" >Descripción:</label>
                 <input type="text" name="descripcion" id="descripcion" [(ngModel)]="descripcion">

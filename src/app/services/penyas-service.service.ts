@@ -24,6 +24,6 @@ crearPenya(penya:Penya){
   penya.idPenya=this.idContador; //quitar cuando lo haga la BD
   this.penyas.push(penya);
   this.idContador++;
-  alert('Penya: '+penya.nombre+' creada');
+  alert('Penya: '+penya.nombrePenya+' creada');
 }
 }

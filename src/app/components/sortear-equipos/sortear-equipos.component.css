@@ -67,3 +67,22 @@ header{
     justify-content: center;
     flex-wrap: nowrap;
  }
+
+ footer button {
+    
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    background-color: #0096C7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #023E8A;
+  }
+  footer button:active{
+    background-color: #023E8A;
+    color:aqua;
+}

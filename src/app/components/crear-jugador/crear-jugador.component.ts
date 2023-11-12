@@ -15,12 +15,13 @@ export class CrearJugadorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.jugadores = this.servicioJugadores.jugadores;
-
+    
   }
-  @Input() penyaCreada:Penya;
+  //TODO ver como importar el nombre peña
+  //  @Input() penyaCreada:Penya;
 
-  jugadores: Jugador[];
-  nombre: string = '';
+    jugadores: Jugador[];
+  nombre: string='';
   posicion: string = '';
   descripcion: string = '';
   email: string = '';
@@ -44,6 +45,10 @@ export class CrearJugadorComponent implements OnInit {
   }
   
   salir(){
+    //Deseleccionar todos los jugadores
+    for(let i=0;i<this.jugadores.length;i++){
+      this.jugadores[i].jugadorSeleccionado=false;
+    }
     this.router.navigate(['jugadores']);
   }
 

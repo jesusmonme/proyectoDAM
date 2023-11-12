@@ -16,7 +16,7 @@ export class FormularioPenyaComponent {
   penyaCreada:Penya;
 
   idPenya:number;
-  nombre:string;
+  nombrePenya:string;
   nombreBD:string;
   cuota:number;
   puntosVictoria:number=3;
@@ -36,10 +36,10 @@ export class FormularioPenyaComponent {
   nombreEquipos:string[]=[];
 
 crearPena(){
-  //TODO metodo para crear peña
-  if (this.nombre && this.nombreBD){
+  //TODO metodo para crear peña usando BD
+  if (this.nombrePenya && this.nombreBD){
 
-    this.penyaCreada=new Penya(1,this.nombre,this.nombreBD,this.puntosVictoria,this.puntosEmpate,
+    this.penyaCreada=new Penya(1,this.nombrePenya,this.nombreBD,this.puntosVictoria,this.puntosEmpate,
         this.puntosDerrota,this.sorteo,this.equilibrarNiveles,this.equilibrarPosiciones,
         this.considerarIncompatibilidades,[],this.nombreEquipos,this.cuota);
     this.servicioPenya.crearPenya(this.penyaCreada);
