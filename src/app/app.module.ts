@@ -12,6 +12,7 @@ import { CrearJugadorComponent } from './components/crear-jugador/crear-jugador.
 import { FormsModule } from '@angular/forms';
 import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 
 const appRoutes:Routes=[
   {path:"", component:LoginComponent},
@@ -20,7 +21,8 @@ const appRoutes:Routes=[
   {path:"formularioPeña", component:FormularioPenyaComponent},
   {path:"login", component:LoginComponent},
   {path:"home", component:HomeComponent},
-  {path:"sorteo", component:SortearEquiposComponent}
+  {path:"sorteo", component:SortearEquiposComponent},
+  {path:"**", component:ErrorPersonalizadoComponent}
 
 ];
 
@@ -32,7 +34,8 @@ const appRoutes:Routes=[
     FormularioPenyaComponent,
     JugadoresComponent,
     CrearJugadorComponent,
-    SortearEquiposComponent
+    SortearEquiposComponent,
+    ErrorPersonalizadoComponent
    
   ],
   imports: [
