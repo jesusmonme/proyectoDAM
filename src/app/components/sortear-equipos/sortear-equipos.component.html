@@ -1,0 +1,24 @@
+<header>     
+    
+    <div class="titulo-cabecera">Equipos Sorteados</div>  
+</header>
+<section class="equipos">  
+    <div class="container-jugadores">
+        <div *ngFor="let equipo of equipos; let indEquipos=index"> 
+            <div class="div-jugadores div-equipo">
+                <div>{{equipos[indEquipos].nombre}}</div>
+            </div> 
+                <div *ngFor="let jugador of this.equipos[indEquipos].jugadores; let i=index">
+                    <div id=i class="div-jugadores">
+                        <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
+                        <span class="blanco">{{equipos[indEquipos].jugadores[i].nombre}}</span><br>
+                        <span>Pos:{{equipos[indEquipos].jugadores[i].posicion}} Ratio:{{equipos[indEquipos].jugadores[i].ratio}}</span><br>
+                        <span>Ultim:{{equipos[indEquipos].jugadores[i].ultimoPartido}} - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
+                    </div>
+                </div>             
+        </div>
+           
+    </div>
+    
+    </section>
+    

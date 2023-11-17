@@ -1,0 +1,60 @@
+<app-sortear-equipos *ngIf="modalSorteo" [equipos]="equipos" [modalSorteo]="modalSorteo"></app-sortear-equipos>
+<footer class="footer button"><button *ngIf="modalSorteo" (click)="volver()">Volver</button></footer>
+
+<div *ngIf="modalSorteo==false" >
+<header>     
+    <div class="titulo-cabecera">Jugadores de {{penya.nombrePenya}}</div> 
+    <div class="container-info-equipo">
+        <div>{{penya.nombrePenya}}</div>
+        <div> {{jugadoresSeleccionados}} Jugadores de {{jugadores.length}}</div>
+    </div>
+</header>
+
+<section>
+    <div class="container-buttons">
+            
+        <div>
+        <button class="button-cabecera izda" (click)="restarContador()">-</button >
+        <button class="button-cabecera izda" (click)="sortearEquipos()">Sortear {{contadorEquipos}} equipos</button>
+        <button class="button-cabecera izda" (click)="sumarContador()">+</button>
+        </div>
+        <button class="button-cabecera dcha">Últimos equipos</button>
+    </div>
+</section>
+
+<section>  
+    <div class="container-jugadores">   
+        
+        <div *ngFor="let jugador of jugadores; let i=index" >   
+            <div *ngIf="jugadores[i].jugadorSeleccionado==false">
+                <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+
+                    <!-- TODO cambiar metodo borrar jugador al icono borrar -->
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
+                    <span class="'blanco">{{jugadores[i].nombre}}</span><br>
+                    <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
+                    <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
+                </div>
+            </div>
+            
+            <div *ngIf="jugadores[i].jugadorSeleccionado">
+                <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+                     <!-- TODO cambiar metodo borrar jugador al icono borrar -->
+                    <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
+                    <span class="blanco">{{jugadores[i].nombre}}</span><br>
+                    <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
+                    <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+</section> 
+
+<footer class="footer button">
+    
+  <button (click)="crearJugadores()">Crear Jugador</button> 
+</footer>
+</div>
+
+    

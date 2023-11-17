@@ -1,0 +1,64 @@
+<header> 
+    <div class="titulo-cabecera">
+        Nuevo Jugador
+        <!-- TODO Ver como meter nombre peña viniendo de formulario y desde peñas -->
+        <div class="titulo-penya" >Peña: </div>
+    </div>  
+
+</header>
+<div class="separacion-header">
+    
+    <form name="formulario">
+        <fieldset>
+            <legend><h3>Datos Generales </h3></legend>             
+               <label for="nombre">Nombre Jugador:</label>
+                <input  type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="nombre">           
+                <br>
+                <label for="descripcion" >Descripción:</label>
+                <input type="text" name="descripcion" id="descripcion" [(ngModel)]="descripcion">
+                <br>
+                <label for="email" >Email:</label>
+                <input type="email" name="email" id="email" [(ngModel)]="email">
+                <br>
+                <label for="miembro">Miembro de la peña:</label>
+                <input type="checkbox" id="miembro" name="miembro" [(ngModel)]="miembro">
+                
+        </fieldset>
+        
+        <fieldset>
+            <legend><h3>Atributos</h3></legend>
+                <label>Posición:</label>
+                <select name="posicion" id="posicion" [(ngModel)]="posicion">
+                    <option value="5">Pivot</option>               
+                    <option value="4">Ala-Pivot</option>
+                    <option value="3" selected>Alero</option>  
+                    <option value="2">Escolta</option> 
+                    <option value="1">Base</option>   
+                </select>
+                <br>
+                <label>Nivel de Juego:</label>
+                <select name="nivel" id="nivel" [(ngModel)]="nivel">
+                    <option value="A">Muy Bueno</option>               
+                    <option value="B">Bueno</option> 
+                    <option value="C" selected>Normal</option> 
+                    <option value="D">Malo</option> 
+                    <option value="E">Muy Malo</option>
+                </select>
+                <br>
+                <!-- TODO de que tipo es incompatibilidad,que valor tiene que tener, boolean, el id del incompatible -->
+                <label>Incompatibilidad:</label>
+                <select name="incompatibilidad" id="incompatibilidad" [(ngModel)]="incompatibilidad">
+                    <option value="" selected>Nadie</option> 
+                    <option *ngFor="let jugador of jugadores" value={{jugador.id}}>{{jugador.nombre}}</option>                
+                </select>
+                <br>
+                <br>          
+        </fieldset>
+        
+        <button type="submit" (click)="crearJugador()">Crear</button>
+        
+    </form>
+    <button class="salir" (click)="salir()">Salir</button>
+</div>
+
+
