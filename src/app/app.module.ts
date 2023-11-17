@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes:Routes=[
   {path:"", component:LoginComponent},
@@ -35,14 +36,15 @@ const appRoutes:Routes=[
     JugadoresComponent,
     CrearJugadorComponent,
     SortearEquiposComponent,
-    ErrorPersonalizadoComponent
+    ErrorPersonalizadoComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
