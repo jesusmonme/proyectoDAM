@@ -3,12 +3,13 @@
             <div class="titulo-cabecera">Listado de Peñas</div>  
     </header>
     <div >
+        <!-- TODO corregir campos -->
         <div *ngFor="let penya of penyas; let i=index" >
-            <div id={{penyas[i].idPenya}} class="div-padre-relativo-de-absolute div-penyas" (click)="irApenya()">
+            <div id={{penya.idPenya}} class="div-padre-relativo-de-absolute div-penyas" (click)="irApenya()">
                 <!-- poner maximo caracteres nombre -->
-                <div class="div-posic-absolute-arriba-izda" >{{penyas[i].nombrePenya}}</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penyas[i].jugadores.length}} partidos <br>
-                    Modificado
+                <div class="div-posic-absolute-arriba-izda" >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
+               <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penya.nombreBD}} partidos <br>
+                    Modificado {{penya.sorteo}}
                 </div>
             </div>
         </div>                

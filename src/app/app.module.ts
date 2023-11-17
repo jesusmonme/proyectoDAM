@@ -15,17 +15,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { HttpClientModule } from '@angular/common/http';
 
-const appRoutes:Routes=[
-  {path:"", component:LoginComponent},
-  {path:"jugadores", component:JugadoresComponent},
-  {path:"crearJugador", component:CrearJugadorComponent},
-  {path:"formularioPeña", component:FormularioPenyaComponent},
-  {path:"login", component:LoginComponent},
-  {path:"home", component:HomeComponent},
-  {path:"sorteo", component:SortearEquiposComponent},
-  {path:"**", component:ErrorPersonalizadoComponent}
+// const appRoutes:Routes=[
+//   {path:"", component:LoginComponent},
+//   {path:"jugadores", component:JugadoresComponent},
+//   {path:"crearJugador", component:CrearJugadorComponent},
+//   {path:"formularioPeña", component:FormularioPenyaComponent},
+//   {path:"login", component:LoginComponent},
+//   {path:"home", component:HomeComponent},
+//   {path:"sorteo", component:SortearEquiposComponent},
+//   {path:"**", component:ErrorPersonalizadoComponent}
 
-];
+// ];
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
   providers: [],

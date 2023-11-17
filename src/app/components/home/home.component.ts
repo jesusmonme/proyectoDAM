@@ -9,17 +9,25 @@ import { PenyasServiceService } from 'src/app/services/penyas-service.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  penyas:Penya[];
   constructor(private router:Router, private penyaService:PenyasServiceService){
   
     
   }
   ngOnInit(): void {
-    this.penyas=this.penyaService.penyas;
-    console.log(this.penyas[0].jugadores?.length + this.penyas[0].nombrePenya)
+    //cargamos las peñas
+    this.obtenerPenyas();
   }
 
-
-  penyas:Penya[];
+  private obtenerPenyas(){
+    //Consumir los datos del observable (suscribir)
+    this.penyaService.obtenerPenyas().subscribe(
+      datos=> {
+        this.penyas=datos;
+      }
+    );
+  }
 
   crearPena(){
     this.router.navigate(['formularioPeña'])
