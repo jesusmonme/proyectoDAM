@@ -16,7 +16,7 @@ export class Penya{
         public considerarIncompatibilidades:boolean,
         public jugadores:Jugador[]=[],
         public nombreEquipos?:string[],
-        public cuota?:number,
+        public cuota?:number
         
          ){
         //TODO ver si esto hace falta o tiene sentido
