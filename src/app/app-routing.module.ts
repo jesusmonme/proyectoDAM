@@ -7,15 +7,17 @@ import { FormularioPenyaComponent } from './components/formulario-penya/formular
 import { HomeComponent } from './components/home/home.component';
 import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
+import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
 
 //http:localhost:4200/login
 const routes:Routes=[
   {path:"login", component:LoginComponent},
   {path:"", redirectTo: 'login', pathMatch:'full'},
-  {path:"jugadores", component:JugadoresComponent},
-  {path:"crearJugador", component:CrearJugadorComponent},
-  {path:"formularioPeña", component:FormularioPenyaComponent},  
   {path:"home", component:HomeComponent},
+  {path:"formularioPeña", component:FormularioPenyaComponent},
+  {path:"editarPenya/:id", component:EditarPenyaComponent},
+  {path:"crearJugador", component:CrearJugadorComponent},  
+  {path:"jugadores", component:JugadoresComponent},   
   {path:"sorteo", component:SortearEquiposComponent},
   {path:"**", component:ErrorPersonalizadoComponent}
 

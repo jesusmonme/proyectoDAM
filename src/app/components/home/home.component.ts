@@ -33,7 +33,30 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['formularioPeña'])
   }
 
-  irApenya(){
-    this.router.navigate(['jugadores']);
+  // irApenya(){
+  //   this.router.navigate(['jugadores']);
+  // }
+
+  editarPenya(id:number){
+    
+    this.router.navigate(['editarPenya',id]);
+  }
+
+  eliminarPenya(id:number){
+    let confirmacion = confirm("seguro que quieres eliminar la peña?");
+    if (confirmacion) {
+      this.penyaService.eliminarPenya(id).subscribe(
+        {
+          next:(datos) => this.obtenerPenyas(),
+          error:(errores)=> console.log(errores)
+        }
+      );
+    }
+    // this.penyaService.eliminarPenya(id).subscribe(
+    //   {
+    //     next:(datos) => this.obtenerPenyas(),
+    //     error:(errores)=> console.log(errores)
+    //   }
+    // );
   }
 }

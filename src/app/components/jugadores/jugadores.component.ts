@@ -31,7 +31,7 @@ export class JugadoresComponent implements OnInit {
   modalSorteo=false;
 
   //TODO corregir cuando pasemos un id al indice array peñas
-  nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
+  // nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
   jugadoresSeleccionados: number = 0;
   contadorEquipos = 2;
   

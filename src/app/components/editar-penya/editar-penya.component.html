@@ -1,39 +1,38 @@
 
-<app-crear-jugador *ngIf="modalCrearJugador" ></app-crear-jugador>
-<div *ngIf="modalCrearJugador==false">
+
 <header> 
-    <div class="titulo-cabecera">Configuración de la Peña</div>  
+    <div class="titulo-cabecera">Editar Peña</div>  
 </header>
 <div class="separacion-header">
     <form (ngSubmit)="onSubmit()">
         <fieldset>
             <legend><h3>Datos Generales </h3></legend>             
                <label for="nombre">Nombre de la Peña:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="penyaCreada.nombrePenya" required="true">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="penya.nombrePenya" required="true">
                 <br>
                 <label for="nombreBD">Nombre en la Base de Datos:</label>
-                <input type="text" name="nombreBD" id="nombreBD" placeholder="NombreBD" [(ngModel)]="penyaCreada.nombreBD" required="true">
+                <input type="text" name="nombreBD" id="nombreBD" placeholder="NombreBD" [(ngModel)]="penya.nombreBD" required="true" disabled="true">
                 <br>
                 <label for="cuota">Cuota miembro:</label>
-                <input type="number" name="cuota" id="cuota" placeholder="0.00" step="any" [(ngModel)]="penyaCreada.cuota">
+                <input type="number" name="cuota" id="cuota" placeholder="0.00" step="any" [(ngModel)]="penya.cuota">
                 <br>
         </fieldset>
         <fieldset>
             <legend><h3>Reparto puntos</h3></legend>
                 <label  for="victoria">Puntos por victoria</label>
-                <input type="number" name="victoria" id="victoria"  [(ngModel)]="penyaCreada.puntosVictoria">
+                <input type="number" name="victoria" id="victoria"  [(ngModel)]="penya.puntosVictoria">
                 <br>   
                 <label for="empate">Puntos por empate</label>
-                <input type="number" name="empate" id="empate"  [(ngModel)]="penyaCreada.puntosEmpate">
+                <input type="number" name="empate" id="empate"  [(ngModel)]="penya.puntosEmpate">
                 <br>   
                 <label for="derrota">Puntos por derrota</label>
-                <input type="number" name="derrota" id="derrota" [(ngModel)]="penyaCreada.puntosDerrota">
+                <input type="number" name="derrota" id="derrota" [(ngModel)]="penya.puntosDerrota">
                 <br>          
         </fieldset>
         <fieldset>
             <legend><h3>Parametros de sorteo</h3></legend>
                 <label>Sorteo basado en:</label>
-                <select name="sorteo" id="sorteo" [(ngModel)]="penyaCreada.sorteo">
+                <select name="sorteo" id="sorteo" [(ngModel)]="penya.sorteo">
                     <!-- TODO ver valores select si poner a numerico -->
                     <option value="vic-der">Ratio Victorias/Derrotas</option>               
                     <option value="clasificacion">Clasificacion en la peña</option>
@@ -43,19 +42,20 @@
                 </select>
                 <br>
                 <label>Equilibrar niveles</label>
-                <input type="checkbox" name="equilibrarNiveles" [(ngModel)]="penyaCreada.equilibrarNiveles" >
+                <input type="checkbox" name="equilibrarNiveles" [(ngModel)]="penya.equilibrarNiveles" >
                 <br>
                 <label>Equilibrar posiciones</label>
-                <input type="checkbox" name="equilibrarPosiciones" [(ngModel)]="penyaCreada.equilibrarPosiciones">
+                <input type="checkbox" name="equilibrarPosiciones" [(ngModel)]="penya.equilibrarPosiciones">
                 <br>
                 <label>Considerar incompatibilidades</label>
-                <input type="checkbox" name="considerarIncompatibilidades"[(ngModel)]="penyaCreada.considerarIncompatibilidades">
-                <div>{{penyaCreada.considerarIncompatibilidades}}</div>
+                <input type="checkbox" name="considerarIncompatibilidades"[(ngModel)]="penya.considerarIncompatibilidades">
+                <div>{{penya.considerarIncompatibilidades}}</div>
                 <br>          
         </fieldset>
         <fieldset>
             <legend><h3>Nombres de Equipos</h3></legend>
             <label for="nombreEquipo1">Equipo 1:</label>
+            <!-- TODO ver tema nombre equipos -->
             <input type="text" name="nombreEquipo1" id="nombreEquipo1" placeholder="Equipo1..."[(ngModel)]="nombreEquipo1" >
             <br>
             <label for="nombreEquipo2">Equipo 2:</label>
@@ -72,9 +72,9 @@
             <br>
         </fieldset>
         
-        <button type="submit" >Crear</button>
+        <button type="submit" >Guardar</button>
         <button (click)="salir()">Salir</button>
     </form>
    
 </div>
-</div>
+

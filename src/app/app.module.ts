@@ -14,6 +14,7 @@ import { SortearEquiposComponent } from './components/sortear-equipos/sortear-eq
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
 
 // const appRoutes:Routes=[
 //   {path:"", component:LoginComponent},
@@ -37,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     CrearJugadorComponent,
     SortearEquiposComponent,
     ErrorPersonalizadoComponent,
+    EditarPenyaComponent,
    
   ],
   imports: [
