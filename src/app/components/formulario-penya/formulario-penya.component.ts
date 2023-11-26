@@ -9,13 +9,10 @@ import { PenyasServiceService } from 'src/app/services/penyas-service.service';
   styleUrls: ['./formulario-penya.component.css']
 })
 export class FormularioPenyaComponent {
-  
-  modalCrearJugador=false;
   penyaCreada:Penya=new Penya();
   constructor(private router:Router, private servicioPenya:PenyasServiceService){
 
   }
-  
   onSubmit(){
     this.crearPenya();
   }
@@ -30,25 +27,26 @@ export class FormularioPenyaComponent {
   nombreEquipo5:string;
   
 
-crearPenya(){
-    this.servicioPenya.agregarPenya(this.penyaCreada).subscribe(
+  crearPenya(){
+      this.servicioPenya.agregarPenya(this.penyaCreada).subscribe(
       {
-      next:(datos)=>{
-        alert(`Peña ${this.penyaCreada.nombrePenya} creada`);
-        this.irListaPenyas();
+      complete:()=>{
+        this.servicioPenya.mostrarMensaje(`Peña ${this.penyaCreada.nombrePenya} creada, entra en ella para crear los jugadores`);
+        this.irListaPenyas();      
       },
-      error:(error:any)=>{console.log(error)}
+     
+            error:(error:any)=>{console.log(error)}
     }
     );
-    
-  }
+   
+      }
 
   irListaPenyas(){
   this.router.navigate(['home'])
   }
 
   //TODO ver si eliminar el botón de salir
-salir(){
+  salir(){
   this.router.navigate(['home']);
-}
+  }
 }

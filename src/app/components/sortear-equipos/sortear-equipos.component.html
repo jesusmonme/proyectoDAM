@@ -11,7 +11,7 @@
                 <div *ngFor="let jugador of this.equipos[indEquipos].jugadores; let i=index">
                     <div id=i class="div-jugadores">
                         <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-                        <span class="blanco">{{equipos[indEquipos].jugadores[i].nombre}}</span><br>
+                        <span class="blanco">{{equipos[indEquipos].jugadores[i].nombreJugador}}</span><br>
                         <span>Pos:{{equipos[indEquipos].jugadores[i].posicion}} Ratio:{{equipos[indEquipos].jugadores[i].ratio}}</span><br>
                         <span>Ultim:{{equipos[indEquipos].jugadores[i].ultimoPartido}} - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
                     </div>

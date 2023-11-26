@@ -27,6 +27,7 @@ agregarPenya(penya: Penya):Observable<Object> {
 }
 obtenerPenyaPorId(id:number){
   return this.clienteHttp.get<Penya>(`${this.urlBase}/${id}`);
+  
 }
 
 editarPenya(id:number, penya:Penya):Observable<Object>{
@@ -35,5 +36,9 @@ editarPenya(id:number, penya:Penya):Observable<Object>{
 
 eliminarPenya(id:number): Observable<Object>{
   return this.clienteHttp.delete(`${this.urlBase}/${id}`);
+}
+
+mostrarMensaje(mensaje: String){
+  alert(mensaje);
 }
 }

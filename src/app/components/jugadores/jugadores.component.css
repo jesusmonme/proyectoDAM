@@ -96,12 +96,7 @@ header{
     margin-left: 2px;
 }
 
-.footer button {
-    
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 15px;
+.boton-jugadores{
     background-color: #0096C7;
     color: #fff;
     padding: 10px 20px;
@@ -109,6 +104,14 @@ header{
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 1px 1px 5px #023E8A;
+    margin-right: 20px;
+}
+.footer-button {
+    bottom: 20px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    
   }
 .footer button:active{
     background-color: #023E8A;

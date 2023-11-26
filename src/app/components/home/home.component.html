@@ -7,7 +7,7 @@
         <div *ngFor="let penya of penyas; let i=index" >
             <div id={{penya.idPenya}} class="div-padre-relativo-de-absolute div-penyas" >
                 <!-- poner maximo caracteres nombre -->
-                <div class="div-posic-absolute-arriba-izda" >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
+                <div class="div-posic-absolute-arriba-izda" (click)="irAPenya(penya.idPenya)" >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
                <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penya.nombreBD}} partidos <br>
                     Modificado {{penya.sorteo}}
                     <!--TODO hacer botón o similar -->
@@ -20,6 +20,6 @@
         </div>                
     </div>
     <footer>        
-        <button (click)="crearPena()">Crear Peña</button>        
+        <button (click)="crearPenya()">Crear Peña</button>        
     </footer>   
 </body>

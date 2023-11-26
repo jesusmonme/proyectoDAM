@@ -1,6 +1,3 @@
-
-<app-crear-jugador *ngIf="modalCrearJugador" ></app-crear-jugador>
-<div *ngIf="modalCrearJugador==false">
 <header> 
     <div class="titulo-cabecera">Configuración de la Peña</div>  
 </header>
@@ -50,7 +47,6 @@
                 <br>
                 <label>Considerar incompatibilidades</label>
                 <input type="checkbox" name="considerarIncompatibilidades"[(ngModel)]="penyaCreada.considerarIncompatibilidades">
-                <div>{{penyaCreada.considerarIncompatibilidades}}</div>
                 <br>          
         </fieldset>
         <fieldset>
@@ -77,4 +73,4 @@
     </form>
    
 </div>
-</div>
+

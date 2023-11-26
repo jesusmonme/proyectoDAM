@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../../modelos/jugador.model';
 import { Equipo } from '../../modelos/equipo.model';
 import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PenyasServiceService } from 'src/app/services/penyas-service.service';
 import { Penya } from 'src/app/modelos/penya.model';
 
@@ -13,22 +13,40 @@ import { Penya } from 'src/app/modelos/penya.model';
 })
 export class JugadoresComponent implements OnInit {
 
+  penya:Penya = new Penya();
+  id:number;
+  jugadores:Jugador[];
+  modalSorteo=false;
   constructor(private servicioJugadores: JugadoresServiceService,
     private servicioPenyas: PenyasServiceService,
-    private route: Router) {
-
+    private route: Router, private router: ActivatedRoute) {
+      this.obtenerJugadores();
   }
+  
 
   ngOnInit(): void {
-    // this.jugadores = this.servicioJugadores.jugadores;
-    this.jugadores = this.servicioPenyas.penyas[0].jugadores;
-    this.penya=this.servicioPenyas.penyas[0];
-
+    this.id=this.router.snapshot.params['id'];
+    this.servicioPenyas.obtenerPenyaPorId(this.id).subscribe({
+      next: (datos)=> this.penya=datos,
+      error: (error:any) => console.log(error)
+    }
+    );
+   this.obtenerJugadores();
+    if(this.jugadores==null){
+        alert('No hay jugadores aún en la peña, añade jugadores pulsando el botón "Crear Jugador"');
+        
+    }
   }
+  private obtenerJugadores(){
+    //Consumir los datos del observable (suscribir)
+    this.servicioJugadores.obtenerJugadores().subscribe(
+      datos=> {
+        this.jugadores=datos;
+      }
+    );
+  }
+  //TODO metodo en servicio jugadores de obtener jugadores con idPenya
 
-  jugadores: Jugador[];
-  penya:Penya;
-  modalSorteo=false;
 
   //TODO corregir cuando pasemos un id al indice array peñas
   // nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
@@ -69,11 +87,11 @@ export class JugadoresComponent implements OnInit {
     }
   }
   crearJugadores() {
-    this.route.navigate(['crearJugador']);
+    this.route.navigate(['crearJugador/',this.id]);
   }
 
   seleccionarJugador(idJugador: number) {
-    const jugadorBuscado = this.jugadores.find((elemento) => elemento.id == idJugador);
+    const jugadorBuscado = this.jugadores.find((elemento) => elemento.idJugador == idJugador);
     if (jugadorBuscado) {
       if (jugadorBuscado.jugadorSeleccionado == false) {
         jugadorBuscado.jugadorSeleccionado = true;
@@ -85,7 +103,7 @@ export class JugadoresComponent implements OnInit {
       else {
         jugadorBuscado.jugadorSeleccionado = false;
         this.jugadoresSeleccionados--;
-        this.jugadoresConvocados = this.jugadoresConvocados.filter(j => j.id !== jugadorBuscado.id);
+        this.jugadoresConvocados = this.jugadoresConvocados.filter(j => j.idJugador !== jugadorBuscado.idJugador);
 
 
       }
@@ -94,9 +112,9 @@ export class JugadoresComponent implements OnInit {
   }
   borrarJugador(jugadorAborrar: Jugador) {
 
-    let confirmacion = confirm("seguro que quieres eliminar al jugador: " + jugadorAborrar.nombre + '?');
+    let confirmacion = confirm("seguro que quieres eliminar al jugador: " + jugadorAborrar.nombreJugador + '?');
     if (confirmacion) {
-      this.servicioJugadores.borrarJugador(jugadorAborrar);
+      // this.servicioJugadores.borrarJugador(jugadorAborrar);
       this.jugadoresSeleccionados--;
     }
   }
@@ -125,6 +143,8 @@ export class JugadoresComponent implements OnInit {
     this.equipos=[this.equipo1,this.equipo2];
   }
 
-
+salir(){
+  this.route.navigate(['home']);
+}
 }
 

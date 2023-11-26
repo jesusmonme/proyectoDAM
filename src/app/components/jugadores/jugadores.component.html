@@ -27,34 +27,37 @@
         
         <div *ngFor="let jugador of jugadores; let i=index" >   
             <div *ngIf="jugadores[i].jugadorSeleccionado==false">
-                <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+                <div id=i class="div-jugadores"   (mousedown)="seleccionarJugador(jugadores[i].idJugador)">
 
                     <!-- TODO cambiar metodo borrar jugador al icono borrar -->
                     <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
-                    <span class="'blanco">{{jugadores[i].nombre}}</span><br>
+                    <span class="'blanco">{{jugadores[i].nombreJugador}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
                 </div>
             </div>
             
             <div *ngIf="jugadores[i].jugadorSeleccionado">
-                <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].id)">
+                <div id=i class="div-jugadores div-jugador-seleccionado"   (mousedown)="seleccionarJugador(jugadores[i].idJugador)">
                      <!-- TODO cambiar metodo borrar jugador al icono borrar -->
                     <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" (mousedown)="borrarJugador(jugadores[i])"></div>
-                    <span class="blanco">{{jugadores[i].nombre}}</span><br>
+                    <span class="blanco">{{jugadores[i].nombreJugador}}</span><br>
                     <span>Nivel :{{jugadores[i].nivel}}  Pos:{{jugadores[i].posicion}}</span><br>
                     <span>Ultim: {{jugadores[i].ultimoPartido}}  - Miem: {{jugadores[i].miembro}} -  Rat:{{jugadores[i].ratio}}</span>
                 </div>
             </div>
         </div>   
     </div>
-
-</section> 
-
-<footer class="footer button">
     
-  <button (click)="crearJugadores()">Crear Jugador</button> 
+</section> 
+<footer class="footer-button">
+    <button class="boton-jugadores" (click)="crearJugadores()">Crear Jugador</button> 
+    <button class="boton-jugadores" (click)="salir()">Salir</button> 
 </footer>
+
+  
+
+
 </div>
 
     

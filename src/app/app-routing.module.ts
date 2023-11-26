@@ -16,8 +16,8 @@ const routes:Routes=[
   {path:"home", component:HomeComponent},
   {path:"formularioPeña", component:FormularioPenyaComponent},
   {path:"editarPenya/:id", component:EditarPenyaComponent},
-  {path:"crearJugador", component:CrearJugadorComponent},  
-  {path:"jugadores", component:JugadoresComponent},   
+  {path:"crearJugador/:id", component:CrearJugadorComponent},  
+  {path:"jugadores/:id", component:JugadoresComponent},   
   {path:"sorteo", component:SortearEquiposComponent},
   {path:"**", component:ErrorPersonalizadoComponent}
 

@@ -2,7 +2,7 @@
     <div class="titulo-cabecera">
         Nuevo Jugador
         <!-- TODO Ver como meter nombre peña viniendo de formulario y desde peñas -->
-        <div class="titulo-penya" >Peña: </div>
+        <div class="titulo-penya" >Peña: {{penya.nombrePenya}} </div>
     </div>  
 
 </header>
@@ -49,7 +49,7 @@
                 <label>Incompatibilidad:</label>
                 <select name="incompatibilidad" id="incompatibilidad" [(ngModel)]="incompatibilidad">
                     <option value="" selected>Nadie</option> 
-                    <option *ngFor="let jugador of jugadores" value={{jugador.id}}>{{jugador.nombre}}</option>                
+                    <option *ngFor="let jugador of jugadores" value={{jugador.idJugador}}>{{jugador.nombreJugador}}</option>                
                 </select>
                 <br>
                 <br>          

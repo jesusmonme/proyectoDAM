@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  crearPena(){
+  crearPenya(){
     this.router.navigate(['formularioPeña'])
   }
 
@@ -58,5 +58,9 @@ export class HomeComponent implements OnInit {
     //     error:(errores)=> console.log(errores)
     //   }
     // );
+  }
+
+  irAPenya(id:number){
+    this.router.navigate(['jugadores/',id]);
   }
 }
