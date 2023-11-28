@@ -15,12 +15,12 @@ export class JugadoresComponent implements OnInit {
 
   penya:Penya = new Penya();
   id:number;
-  jugadores:Jugador[];
+  jugadores:Jugador[]=[];
   modalSorteo=false;
   constructor(private servicioJugadores: JugadoresServiceService,
     private servicioPenyas: PenyasServiceService,
     private route: Router, private router: ActivatedRoute) {
-      this.obtenerJugadores();
+     
   }
   
 
@@ -32,17 +32,17 @@ export class JugadoresComponent implements OnInit {
     }
     );
    this.obtenerJugadores();
-    if(this.jugadores==null){
-        alert('No hay jugadores aún en la peña, añade jugadores pulsando el botón "Crear Jugador"');
-        
-    }
+    
   }
+  
   private obtenerJugadores(){
     //Consumir los datos del observable (suscribir)
-    this.servicioJugadores.obtenerJugadores().subscribe(
-      datos=> {
+    this.servicioJugadores.obtenerJugadores(this.id).subscribe({
+      next: (datos)=> {
         this.jugadores=datos;
       }
+      
+    }
     );
   }
   //TODO metodo en servicio jugadores de obtener jugadores con idPenya

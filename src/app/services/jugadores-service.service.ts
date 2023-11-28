@@ -13,17 +13,29 @@ export class JugadoresServiceService {
   constructor(private clienteHttp: HttpClient) { 
 
   }
-  obtenerJugadores():Observable<Jugador[]>{
-    return this.clienteHttp.get<Jugador[]>(this.urlBase);
+//   obtenerJugadores():Observable<Jugador[]>{
+//     return this.clienteHttp.get<Jugador[]>(this.urlBase);
+// }
+
+obtenerJugadores(idPenya: number): Observable<Jugador[]> {
+  const url = `${this.urlBase}/${idPenya}`;
+  return this.clienteHttp.get<Jugador[]>(url);
 }
 
+
 //En este metodo recibimos un objeto de tipo Penya que vamos a enviar en nuestra peticion de tipo POST
-//Va devolver un objeto de tipo Observable, y es un objeto de tipo Object, aunque es un Penya
-agregarJugador(jugador: Jugador):Observable<Object> {
-  return this.clienteHttp.post(this.urlBase, jugador);
+//Va devolver un objeto de tipo Observable, y es un objeto de tipo Object, aunque es un Jugador
+
+agregarJugador(jugador: Jugador, id:number):Observable<Object> {
+  
+  return this.clienteHttp.post(`${this.urlBase}/crearJugador/${id}`, jugador);
 }
+//TODO ver si esto es mas correcto
+// agregarJugador(jugador: Jugador, id: number): Observable<Jugador> {
+//   return this.clienteHttp.post<Jugador>(`${this.urlBase}/crearJugador/${id}`, jugador);
+// }
 obtenerJugadorPorId(id:number){
-  return this.clienteHttp.get<Jugador>(`${this.urlBase}/${id}`);
+  return this.clienteHttp.get<Jugador>(`${this.urlBase}/jugador/${id}`);
   
 }
 
@@ -34,29 +46,4 @@ editarJugador(id:number, jugador:Jugador):Observable<Object>{
 eliminarJugador(id:number): Observable<Object>{
   return this.clienteHttp.delete(`${this.urlBase}/${id}`);
 }
-
-
-  
-  // jugadores:Jugador[];
-  // //todo borrar cuando la base datos genere los ID
-  // idContador:number=7;
-  
-
-  // agregarJugador(jugador:Jugador){
-  //   jugador.id=this.idContador;
-  //   this.jugadores.push(jugador);
-  //   //todo borrar esto cuando lo haga la base de datos
-  //   this.idContador++;
-  //   alert('Jugador: '+jugador.nombre+' creado');
-    
-  // }
-  // borrarJugador(jugador:Jugador){
-  //   this.jugadores.splice(jugador.id-1,1);
-  // }
-
-  // editarJugador(){
-
-  // }
-  
-
 }

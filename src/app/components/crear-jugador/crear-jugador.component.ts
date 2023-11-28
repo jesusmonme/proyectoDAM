@@ -15,13 +15,15 @@ export class CrearJugadorComponent implements OnInit {
   penya:Penya = new Penya();
   id:number;
   jugadores:Jugador[];
+  jugadorCreado:Jugador=new Jugador();
+  
   constructor(
     private servicioJugadores: JugadoresServiceService,
     private servicioPenya: PenyasServiceService,
     private route:Router,
-    private router:ActivatedRoute) {
-
+    private router:ActivatedRoute) { 
   }
+
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
     this.servicioPenya.obtenerPenyaPorId(this.id).subscribe(
@@ -31,53 +33,47 @@ export class CrearJugadorComponent implements OnInit {
         error: (error:any)=> console.log(error)
       }
     );
+    this.servicioJugadores.obtenerJugadores(this.id).subscribe({
+      next: (datos) => this.jugadores=datos
+      ,
+      error(error:any){console.log(error);
+      }
+    })  
+    //pasamos el id de ruta para almacenarlo como idPenya
+   // this.jugadorCreado.idPenya=Number(this.id);
     
-    this.jugadores = this.servicioJugadores.jugadores;
     
   }
-  //TODO ver como importar el nombre peña
-  //  @Input() penyaCreada:Penya;
-
   
-  nombre: string='';
-  posicion: string = '';
-  descripcion: string = '';
-  email: string = '';
-  nivel: string = '';
-  incompatibilidad: string = '';
-  miembro: boolean = true;
+  onSubmit(){   
+      this.crearJugador();    
+  }
 
+  //Metodo que almacena jugador creado y pasa idPenya de la ruta para que el backend
+  //introduzca la penya e idPenya en la BD
   crearJugador() {
-    if (this.nombre == "") {
-      alert('El campo nombre debe estar relleno');
+    //TODO poner en rojo campos no rellenos
+    if (this.jugadorCreado.nombreJugador == "" || this.jugadorCreado.posicion =="" ) {
+      alert('El nombre y posición deben estar rellenos');
     }
-    // else {
-    //   //TODO manejar el id de la BD
-    //   let jugador1 = new Jugador(1, this.nombre, this.nivel, this.posicion, this.miembro, this.incompatibilidad, this.email,this.descripcion,);
-    //   this.servicioJugadores.agregarJugador(jugador1);
-    //   // this.servicioJugadores.jugadoresTotales++;
-    //   this.limpiarDatos();
-    //   console.log(this.jugadores);
-    //   console.log(jugador1);
-    // }
+    else{     
+      this.servicioJugadores.agregarJugador(this.jugadorCreado, this.id).subscribe({
+        complete:() =>{
+          alert(`Jugador ${this.jugadorCreado.nombreJugador} creado`);
+          this.limpiarDatos();
+        },
+        error:(error:any) => {console.log(error)}
+      });
+    }
   }
   
   salir(){
-    //Deseleccionar todos los jugadores
-    for(let i=0;i<this.jugadores.length;i++){
-      this.jugadores[i].jugadorSeleccionado=false;
-    }
-    this.route.navigate(['jugadores/',this.id]);
+    this.route.navigate(['jugadores/',this.penya.idPenya]);
   }
 
   limpiarDatos() {
-    this.nombre = '';
-    this.posicion = '';
-    this.descripcion = '';
-    this.email = '';
-    this.nivel = '';
-    this.incompatibilidad = '';
-    this.miembro = true;
+   this.jugadorCreado=new Jugador();
+    
   }
 
 }
