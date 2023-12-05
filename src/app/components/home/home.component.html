@@ -5,14 +5,14 @@
     <div >
         <!-- TODO corregir campos -->
         <div *ngFor="let penya of penyas; let i=index" >
-            <div id={{penya.idPenya}} class="div-padre-relativo-de-absolute div-penyas" >
+            <div id={{penya.idPenya}} class="div-padre-relativo-de-absolute div-penyas"  >
                 <!-- poner maximo caracteres nombre -->
-                <div class="div-posic-absolute-arriba-izda" (click)="irAPenya(penya.idPenya)" >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
+                <div class="div-posic-absolute-arriba-izda" (click)="irAPenya(penya.idPenya)"  >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
                <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penya.nombreBD}} partidos <br>
                     Modificado {{penya.sorteo}}
                     <!--TODO hacer botón o similar -->
-                    <span style="font-size: larger; font-weight: bolder; color: black;" (click)="editarPenya(penya.idPenya)">Editar</span>
-                    <span style="font-size: larger; font-weight: bolder; color: red;" (click)="eliminarPenya(penya.idPenya)">Eliminar</span>
+                    <span style="font-size: larger; font-weight: bolder; color: black; cursor:pointer" (click)="editarPenya(penya.idPenya)">Editar</span>
+                    <span style="font-size: larger; font-weight: bolder; color: red; cursor:pointer" (click)="eliminarPenya(penya.idPenya)">Eliminar</span>
                 </div>
                 
             </div>

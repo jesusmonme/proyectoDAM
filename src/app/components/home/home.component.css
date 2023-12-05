@@ -60,6 +60,7 @@
         text-transform: uppercase;
         font-weight: bolder;
         color:#023E8A; 
+        cursor:pointer;
 }
 .div-posic-absolute-abajo-dcha{
     position: absolute;

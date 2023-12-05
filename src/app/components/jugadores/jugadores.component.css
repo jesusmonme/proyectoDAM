@@ -76,6 +76,7 @@ header{
 }
 .blanco{
     color:white;
+    text-transform: uppercase;
     
 }
 .div-jugadores:hover{

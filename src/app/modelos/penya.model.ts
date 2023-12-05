@@ -18,7 +18,7 @@ export class Penya{
         public nombreEquipos?:string[];
         public cuota?:number;
         
-        
+                
         
     }
 

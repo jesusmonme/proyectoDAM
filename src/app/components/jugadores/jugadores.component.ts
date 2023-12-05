@@ -114,11 +114,20 @@ export class JugadoresComponent implements OnInit {
 
     let confirmacion = confirm("seguro que quieres eliminar al jugador: " + jugadorAborrar.nombreJugador + '?');
     if (confirmacion) {
-      // this.servicioJugadores.borrarJugador(jugadorAborrar);
-      this.jugadoresSeleccionados--;
+      this.servicioJugadores.eliminarJugador(jugadorAborrar.idJugador).subscribe(
+        {
+          next:(datos) => this.obtenerJugadores(),
+          complete:() =>{
+            alert(`Jugador ${jugadorAborrar.nombreJugador} eliminado`) ;
+          },
+          error:(errores) => console.log(errores)
+        ,
+        }
+      );
+      // this.jugadoresSeleccionados--;
     }
   }
-
+  
   sortearEquipos() {
     //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
    
@@ -142,6 +151,9 @@ export class JugadoresComponent implements OnInit {
     this.equipo2=new Equipo([],2,'Equipo2');
     this.equipos=[this.equipo1,this.equipo2];
   }
+editarJugador(idJugador:number, idPenya:number){
+  this.route.navigate(['/jugadores/',idPenya,idJugador]);
+}
 
 salir(){
   this.route.navigate(['home']);
