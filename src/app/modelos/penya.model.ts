@@ -14,7 +14,7 @@ export class Penya{
         public equilibrarNiveles:boolean;
         public equilibrarPosiciones:boolean;
         public considerarIncompatibilidades:boolean;
-        public jugadores:Jugador[]=[];
+        //public jugadores:Jugador[]=[];
         public nombreEquipos?:string[];
         public cuota?:number;
         

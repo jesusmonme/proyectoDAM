@@ -14,7 +14,7 @@ export class CrearJugadorComponent implements OnInit {
 
   penya:Penya = new Penya();
   id:number;
-  jugadores:Jugador[];
+  jugadores:Jugador[]=[];
   jugadorCreado:Jugador=new Jugador();
   
   constructor(
@@ -38,11 +38,7 @@ export class CrearJugadorComponent implements OnInit {
       ,
       error(error:any){console.log(error);
       }
-    })  
-    //pasamos el id de ruta para almacenarlo como idPenya
-   // this.jugadorCreado.idPenya=Number(this.id);
-    
-    
+    })     
   }
   
   onSubmit(){   

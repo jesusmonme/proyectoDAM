@@ -58,9 +58,9 @@ export class JugadoresComponent implements OnInit {
   //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
   
-  equipo1:Equipo=new Equipo([],1,'Equipo1');
-  equipo2:Equipo=new Equipo([],2,'Equipo2');
-  equipos: Equipo[] = [this.equipo1,this.equipo2];
+  // equipo1:Equipo=new Equipo([],1,'Equipo1');
+  // equipo2:Equipo=new Equipo([],2,'Equipo2');
+  // equipos: Equipo[] = [this.equipo1,this.equipo2];
 
   // ver como asociar imagenes a un valor, estas variables no se si al final las usare
   iconoUltimoPartido = [1, 2, 3];
@@ -131,26 +131,26 @@ export class JugadoresComponent implements OnInit {
   sortearEquipos() {
     //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
    
-    this.modalSorteo=true;
-    for(let i=0;i<this.jugadoresConvocados.length;i++){
-      if(this.jugadoresConvocados.length % i !=0){
-        this.equipo1.jugadores.push(this.jugadoresConvocados[i]);
-      }
-      else{
-        this.equipo2.jugadores.push(this.jugadoresConvocados[i]);
-      }
+    // this.modalSorteo=true;
+    // for(let i=0;i<this.jugadoresConvocados.length;i++){
+    //   if(this.jugadoresConvocados.length % i !=0){
+    //     this.equipo1.jugadores.push(this.jugadoresConvocados[i]);
+    //   }
+    //   else{
+    //     this.equipo2.jugadores.push(this.jugadoresConvocados[i]);
+    //   }
 
-    }
+    // }
     // this.route.navigate(['sorteo']);
   }
-  volver(){
-    this.modalSorteo=false;
-    //TODO ver si es necesario
-    //vaciar equipos al volver del sorteo 
-    this.equipo1=new Equipo([],1,'Equipo1');
-    this.equipo2=new Equipo([],2,'Equipo2');
-    this.equipos=[this.equipo1,this.equipo2];
-  }
+  // volver(){
+  //   this.modalSorteo=false;
+  //   //TODO ver si es necesario
+  //   //vaciar equipos al volver del sorteo 
+  //   this.equipo1=new Equipo([],1,'Equipo1');
+  //   this.equipo2=new Equipo([],2,'Equipo2');
+  //   this.equipos=[this.equipo1,this.equipo2];
+  // }
 editarJugador(idJugador:number, idPenya:number){
   this.route.navigate(['/jugadores/',idPenya,idJugador]);
 }
