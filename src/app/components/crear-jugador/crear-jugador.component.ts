@@ -49,8 +49,9 @@ export class CrearJugadorComponent implements OnInit {
   //introduzca la penya e idPenya en la BD
   crearJugador() {
     //TODO poner en rojo campos no rellenos
-    if (this.jugadorCreado.nombreJugador == "" || this.jugadorCreado.posicion =="" ) {
-      alert('El nombre y posición deben estar rellenos');
+    if (this.jugadorCreado.nombreJugador == "" || this.jugadorCreado.posicion =="" 
+    || this.jugadorCreado.nivel =="" ) {
+      alert('El nombre, posición y nivel deben estar rellenos');
     }
     else{     
       this.servicioJugadores.agregarJugador(this.jugadorCreado, this.id).subscribe({

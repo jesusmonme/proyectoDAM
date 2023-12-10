@@ -55,12 +55,9 @@ export class JugadoresComponent implements OnInit {
   
   jugadoresConvocados: Jugador[] = [];
 
-  //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
+//ver como gestionar el sorteo equipos,si metiendo cada uno en array o
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
   
-  // equipo1:Equipo=new Equipo([],1,'Equipo1');
-  // equipo2:Equipo=new Equipo([],2,'Equipo2');
-  // equipos: Equipo[] = [this.equipo1,this.equipo2];
 
   // ver como asociar imagenes a un valor, estas variables no se si al final las usare
   iconoUltimoPartido = [1, 2, 3];

@@ -49,7 +49,7 @@ export class EditarJugadorComponent {
     console.log(this.jugadorEditar);
   }
   onSubmit(){   
-      this.editarJugador();    
+          this.editarJugador();    
   }
 
   //Metodo que almacena jugador creado y pasa idPenya de la ruta para que el backend

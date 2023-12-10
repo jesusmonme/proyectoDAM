@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Penya } from '../modelos/penya.model';
-import { JugadoresServiceService } from './jugadores-service.service';
 import {HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Equipo } from '../modelos/equipo.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class PenyasServiceService {
   penyas:Penya[];
   
 
-constructor(private clienteHttp: HttpClient, private servicioJugadores:JugadoresServiceService) { 
+constructor(private clienteHttp: HttpClient) { 
 
 }
 
@@ -22,9 +22,11 @@ obtenerPenyas():Observable<Penya[]>{
 
 //En este metodo recibimos un objeto de tipo Penya que vamos a enviar en nuestra peticion de tipo POST
 //Va devolver un objeto de tipo Observable, y es un objeto de tipo Object, aunque es un Penya
-agregarPenya(penya: Penya):Observable<Object> {
-  return this.clienteHttp.post(this.urlBase, penya);
+agregarPenya(penya: Penya):Observable<Penya> {
+
+  return this.clienteHttp.post<Penya>(this.urlBase, penya);
 }
+
 obtenerPenyaPorId(id:number){
   return this.clienteHttp.get<Penya>(`${this.urlBase}/${id}`);
   
@@ -38,7 +40,5 @@ eliminarPenya(id:number): Observable<Object>{
   return this.clienteHttp.delete(`${this.urlBase}/${id}`);
 }
 
-mostrarMensaje(mensaje: String){
-  alert(mensaje);
-}
+
 }
