@@ -53,7 +53,7 @@
     box-shadow: 1px 1px 5px #023E8A;
 }
 
-.div-posic-absolute-arriba-izda{
+.nombre-penya{
         position: absolute;
         top: 5px;
         left: 10px;
@@ -62,15 +62,39 @@
         color:#023E8A; 
         cursor:pointer;
 }
-.div-posic-absolute-abajo-dcha{
+.botones-editar-eliminar{
     position: absolute;
-    bottom: 5px;
-    right: 10px;
-    font-size: x-small;  
-    color: #00B4D8;     
+    bottom: 14px;
+    right: 15px;
+    font-size: x-small; 
 }
 
-button {
+.boton-editar{
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+}
+.boton-eliminar{
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+}
+
+.boton-crear {
     
     position: fixed;
     left: 50%;
@@ -83,7 +107,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 1px 1px 5px #023E8A;
-  }
+  } 
 
 .div-penyas:hover{
     background-color: #0096C7;

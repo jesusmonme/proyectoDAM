@@ -35,9 +35,9 @@ header{
     justify-content: space-evenly;    
 }
 
-.container-buttons button{    
+.container-buttons-button{    
       margin-right: 5px;
-      background-color: #0096C7;
+      background-color: orange;
       color: #fff;
       padding: 10px 14px;
       border: none;
@@ -45,7 +45,16 @@ header{
       cursor: pointer;
       box-shadow: 1px 1px 3px #023E8A;
       font-size: x-small;
-      
+}
+.boton-sorteo{
+    background-color: #022452;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #023E8A;
+    font-weight: bolder;
 }
 .izda{
     float: left;
@@ -58,7 +67,7 @@ header{
 .container-jugadores {   
     display: flex;   
     flex-wrap: wrap;
-    gap: 3px;
+    gap: 5px;
     position: relative;
     top:95px;
     justify-content: center;
@@ -71,7 +80,7 @@ header{
     box-shadow: 1px 1px 3px #023E8A;
     font-size: x-small;
     color: #022452;
-    height: 45px;  
+    height: 50px;  
     padding-top: 3px;
 }
 .blanco{
@@ -90,6 +99,7 @@ header{
     width: 25%;
     float: left;
     margin: 2px 2px 0 2px;
+    cursor: pointer;
     
 } 
 .foto-jugador img{
@@ -107,14 +117,55 @@ header{
     box-shadow: 1px 1px 5px #023E8A;
     margin-right: 20px;
 }
+
 .footer-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     bottom: 20px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    gap: 10px;
     
   }
 .footer button:active{
     background-color: #023E8A;
     color:aqua;
+}
+.editar{
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #11aa11;
+    padding: 2px;
+    
+}
+.eliminar{
+    color: white;
+    text-transform: uppercase;
+    float: right;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #dd2727;
+    padding: 2px;
+    
+}
+.icono-eliminar{
+    float: right;
+    color: white;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.icono-editar{
+    margin-left: 13px;
+    color: white;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.botones-editar-borrar{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }

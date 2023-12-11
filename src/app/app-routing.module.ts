@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SortearEquiposComponent } from './components/sortear-equipos/sortear-equipos.component';
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
-import { EditarJugadorComponent } from './editar-jugador/editar-jugador.component';
+import { EditarJugadorComponent } from './components/editar-jugador/editar-jugador.component';
 
 //http:localhost:4200/login
 const routes:Routes=[

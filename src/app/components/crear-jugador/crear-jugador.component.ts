@@ -33,12 +33,7 @@ export class CrearJugadorComponent implements OnInit {
         error: (error:any)=> console.log(error)
       }
     );
-    this.servicioJugadores.obtenerJugadores(this.id).subscribe({
-      next: (datos) => this.jugadores=datos
-      ,
-      error(error:any){console.log(error);
-      }
-    })     
+    this.obtenerJugadores();    
   }
   
   onSubmit(){   
@@ -57,11 +52,14 @@ export class CrearJugadorComponent implements OnInit {
       this.servicioJugadores.agregarJugador(this.jugadorCreado, this.id).subscribe({
         complete:() =>{
           alert(`Jugador ${this.jugadorCreado.nombreJugador} creado`);
+          this.obtenerJugadores();  
           this.limpiarDatos();
+          
         },
         error:(error:any) => {console.log(error)}
       });
     }
+    
   }
   
   salir(){
@@ -71,6 +69,14 @@ export class CrearJugadorComponent implements OnInit {
   limpiarDatos() {
    this.jugadorCreado=new Jugador();
     
+  }
+  obtenerJugadores(){
+    this.servicioJugadores.obtenerJugadores(this.id).subscribe({
+      next: (datos) => this.jugadores=datos
+      ,
+      error(error:any){console.log(error);
+      }
+    })     
   }
 
 }

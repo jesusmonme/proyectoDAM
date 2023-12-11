@@ -1,25 +1,32 @@
-sortear equipos comentado
-<!-- <header>     
-    
-    <div class="titulo-cabecera">Equipos Sorteados</div>  
+<header>
+    <div class="titulo-cabecera">Equipos Sorteados</div>
 </header>
-<section class="equipos">  
+<section class="equipos">
     <div class="container-jugadores">
-        <div *ngFor="let equipo of equipos; let indEquipos=index"> 
-            <div class="div-jugadores div-equipo">
-                <div>{{equipos[indEquipos].nombreEquipo}}</div>
-            </div> 
-                <div *ngFor="let jugador of this.equipos[indEquipos].jugadores; let i=index">
-                    <div id=i class="div-jugadores">
-                        <div class="foto-jugador"><img src="assets/square_PNG51.png" alt="Foto jug" ></div>
-                        <span class="blanco">{{equipos[indEquipos].jugadores[i].nombreJugador}}</span><br>
-                        <span>Pos:{{equipos[indEquipos].jugadores[i].posicion}} Ratio:{{equipos[indEquipos].jugadores[i].ratio}}</span><br>
-                        <span>Ultim:{{equipos[indEquipos].jugadores[i].ultimoPartido}} - Vic: ((%)) -  Emp: ((%)) - Der: ((%))</span>
-                    </div>
-                </div>             
+        <div class="div-equipo">
+            <div>{{equipos[1].nombreEquipo}}</div>
         </div>
-           
+        <div *ngFor="let jugador of equipo1; let i=index">
+            <div id=i class="div-jugadores">
+                <div class="foto-jugador"><img src="assets/persona-rellena.png" alt="Foto jug"></div>
+                <span class="titulo-jugador">{{jugador.nombreJugador}}</span><br>
+                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio}}</span><br>
+                <span>Ultim:{{jugador.ultimoPartido}} - Vic: ((%)) - Emp: ((%)) - Der: ((%))</span>
+            </div>
+        </div>
     </div>
-    
-    </section>
-     -->
+    <div class="container-jugadores">
+        <div class=" div-equipo">
+            <div>{{equipos[2].nombreEquipo}}</div>
+        </div>
+        <div *ngFor="let jugador of equipo2; let i=index">
+            <div id=i class="div-jugadores">
+                <div class="foto-jugador"><img src="assets/persona-rellena.png" alt="Foto jug"></div>
+                <span class="titulo-jugador">{{jugador.nombreJugador}}</span><br>
+                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio}}</span><br>
+                <span>Ultim:{{jugador.ultimoPartido}} - Vic: ((%)) - Emp: ((%)) - Der: ((%))</span>
+            </div>
+        </div>
+    </div>
+</section>
+

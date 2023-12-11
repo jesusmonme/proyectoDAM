@@ -33,7 +33,7 @@ export class EditarJugadorComponent {
       }
       
     );
-    console.log(this.jugadorEditar);
+   
     this.obtenerJugadores(); 
   }
   private obtenerJugadores(){
@@ -46,7 +46,7 @@ export class EditarJugadorComponent {
       
     }
     );
-    console.log(this.jugadorEditar);
+   
   }
   onSubmit(){   
           this.editarJugador();    

@@ -14,7 +14,7 @@ import { SortearEquiposComponent } from './components/sortear-equipos/sortear-eq
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
-import { EditarJugadorComponent } from './editar-jugador/editar-jugador.component';
+import { EditarJugadorComponent } from './components/editar-jugador/editar-jugador.component';
 
 @NgModule({
   declarations: [

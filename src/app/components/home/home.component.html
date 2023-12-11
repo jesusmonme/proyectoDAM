@@ -3,16 +3,17 @@
             <div class="titulo-cabecera">Listado de Peñas</div>  
     </header>
     <div >
-        <!-- TODO corregir campos -->
+        <!-- TODO corregir campos y poner maximo caracteres nombre -->
+         <!-- TODO cuando el click esta en todo el div, al darle a los botones se ejecuta tb irApenya, mientras en nombre-->
         <div *ngFor="let penya of penyas; let i=index" >
             <div id={{penya.idPenya}} class="div-padre-relativo-de-absolute div-penyas"  >
-                <!-- poner maximo caracteres nombre -->
-                <div class="div-posic-absolute-arriba-izda" (click)="irAPenya(penya.idPenya)"  >{{penya.idPenya}}.- {{penya.nombrePenya}}</div>
-               <div class="div-posic-absolute-abajo-dcha">Jugadores: {{penya.nombreBD}} partidos <br>
-                    Modificado {{penya.sorteo}}
-                    <!--TODO hacer botón o similar -->
-                    <span style="font-size: larger; font-weight: bolder; color: black; cursor:pointer" (click)="editarPenya(penya.idPenya)">Editar</span>
-                    <span style="font-size: larger; font-weight: bolder; color: red; cursor:pointer" (click)="eliminarPenya(penya.idPenya)">Eliminar</span>
+                <div class="nombre-penya" (click)="irAPenya(penya.idPenya)"  >{{penya.nombrePenya}}</div>
+               <div class="botones-editar-eliminar">
+                <!-- Jugadores: {{penya.nombreBD}} partidos <br>
+                    Modificado {{penya.sorteo}} -->
+                  
+                    <button class="boton-editar" (click)="editarPenya(penya.idPenya)">Editar</button>
+                    <button class="boton-eliminar" (click)="eliminarPenya(penya.idPenya)">Eliminar</button>
                 </div>
                 
             </div>
@@ -20,6 +21,6 @@
         </div>                
     </div>
     <footer>        
-        <button (click)="crearPenya()">Crear Peña</button>        
+        <button class="boton-crear" (click)="crearPenya()">Crear Peña</button>        
     </footer>   
 </body>

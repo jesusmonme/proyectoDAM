@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Penya } from 'src/app/modelos/penya.model';
+import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 import { PenyasServiceService } from 'src/app/services/penyas-service.service';
 
 @Component({
@@ -11,13 +12,15 @@ import { PenyasServiceService } from 'src/app/services/penyas-service.service';
 export class HomeComponent implements OnInit {
 
   penyas:Penya[];
-  constructor(private router:Router, private penyaService:PenyasServiceService){
+  constructor(private router:Router, private penyaService:PenyasServiceService,
+    private servicioJugadores: JugadoresServiceService){
   
     
   }
   ngOnInit(): void {
     //cargamos las peñas
     this.obtenerPenyas();
+    
   }
 
   private obtenerPenyas(){
@@ -32,11 +35,6 @@ export class HomeComponent implements OnInit {
   crearPenya(){
     this.router.navigate(['formularioPeña'])
   }
-
-  // irApenya(){
-  //   this.router.navigate(['jugadores']);
-  // }
-
   editarPenya(id:number){
     
     this.router.navigate(['editarPenya',id]);
@@ -52,12 +50,7 @@ export class HomeComponent implements OnInit {
         }
       );
     }
-    // this.penyaService.eliminarPenya(id).subscribe(
-    //   {
-    //     next:(datos) => this.obtenerPenyas(),
-    //     error:(errores)=> console.log(errores)
-    //   }
-    // );
+
   }
 
   irAPenya(id:number){

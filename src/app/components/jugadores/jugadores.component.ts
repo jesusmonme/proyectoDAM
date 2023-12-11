@@ -13,35 +13,42 @@ import { Penya } from 'src/app/modelos/penya.model';
 })
 export class JugadoresComponent implements OnInit {
 
-  penya:Penya = new Penya();
-  id:number;
-  jugadores:Jugador[]=[];
-  modalSorteo=false;
+  penya: Penya = new Penya();
+  id: number;
+  jugadores: Jugador[] = [];
+  modalSorteo = false;
+  jugadoresSeleccionados: number = 0;
+  contadorEquipos = 2;
+  jugadoresConvocados: Jugador[] = [];
+  // ver como asociar imagenes a un valor, estas variables no se si al final las usare
+  iconoUltimoPartido = [1, 2, 3];
+  iconoMiembro = ['SI', 'NO'];
+  iconoRatio = [1, 2, 3];
   constructor(private servicioJugadores: JugadoresServiceService,
     private servicioPenyas: PenyasServiceService,
     private route: Router, private router: ActivatedRoute) {
-     
+
   }
-  
+
 
   ngOnInit(): void {
-    this.id=this.router.snapshot.params['id'];
+    this.id = this.router.snapshot.params['id'];
     this.servicioPenyas.obtenerPenyaPorId(this.id).subscribe({
-      next: (datos)=> this.penya=datos,
-      error: (error:any) => console.log(error)
+      next: (datos) => this.penya = datos,
+      error: (error: any) => console.log(error)
     }
     );
-   this.obtenerJugadores();
-    
+    this.obtenerJugadores();
+
   }
-  
-  private obtenerJugadores(){
+
+  private obtenerJugadores() {
     //Consumir los datos del observable (suscribir)
     this.servicioJugadores.obtenerJugadores(this.id).subscribe({
-      next: (datos)=> {
-        this.jugadores=datos;
+      next: (datos) => {
+        this.jugadores = datos;
       }
-      
+
     }
     );
   }
@@ -50,21 +57,9 @@ export class JugadoresComponent implements OnInit {
 
   //TODO corregir cuando pasemos un id al indice array peñas
   // nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
-  jugadoresSeleccionados: number = 0;
-  contadorEquipos = 2;
-  
-  jugadoresConvocados: Jugador[] = [];
 
-//ver como gestionar el sorteo equipos,si metiendo cada uno en array o
+  //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
   //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
-  
-
-  // ver como asociar imagenes a un valor, estas variables no se si al final las usare
-  iconoUltimoPartido = [1, 2, 3];
-  iconoMiembro = ['SI', 'NO'];
-  iconoRatio = [1, 2, 3];
- 
-
   sumarContador() {
     //TODO si al final no hay tiempo para que puedan ser mas de 2equipos, mandar alerta "version premium"
     if (this.contadorEquipos >= 2) {
@@ -84,8 +79,10 @@ export class JugadoresComponent implements OnInit {
     }
   }
   crearJugadores() {
-    this.route.navigate(['crearJugador/',this.id]);
+    this.route.navigate(['crearJugador/', this.id]);
+    
   }
+
 
   seleccionarJugador(idJugador: number) {
     const jugadorBuscado = this.jugadores.find((elemento) => elemento.idJugador == idJugador);
@@ -105,7 +102,7 @@ export class JugadoresComponent implements OnInit {
 
       }
     }
-    console.log('jugador buscado:' + jugadorBuscado);
+
   }
   borrarJugador(jugadorAborrar: Jugador) {
 
@@ -113,21 +110,24 @@ export class JugadoresComponent implements OnInit {
     if (confirmacion) {
       this.servicioJugadores.eliminarJugador(jugadorAborrar.idJugador).subscribe(
         {
-          next:(datos) => this.obtenerJugadores(),
-          complete:() =>{
-            alert(`Jugador ${jugadorAborrar.nombreJugador} eliminado`) ;
+          next: (datos) => this.obtenerJugadores(),
+          complete: () => {
+            alert(`Jugador ${jugadorAborrar.nombreJugador} eliminado`);
           },
-          error:(errores) => console.log(errores)
-        ,
+          error: (errores) => console.log(errores)
+          ,
         }
       );
-      // this.jugadoresSeleccionados--;
+      
     }
+    
+    //TODO corregir para que no se marque el jugador al darle a eliminar
+    //this.jugadoresSeleccionados=-1;
   }
-  
+
   sortearEquipos() {
     //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
-   
+
     // this.modalSorteo=true;
     // for(let i=0;i<this.jugadoresConvocados.length;i++){
     //   if(this.jugadoresConvocados.length % i !=0){
@@ -148,12 +148,54 @@ export class JugadoresComponent implements OnInit {
   //   this.equipo2=new Equipo([],2,'Equipo2');
   //   this.equipos=[this.equipo1,this.equipo2];
   // }
-editarJugador(idJugador:number, idPenya:number){
-  this.route.navigate(['/jugadores/',idPenya,idJugador]);
-}
+  editarJugador(idJugador: number, idPenya: number) {
+    this.route.navigate(['/jugadores/', idPenya, idJugador]);
+  }
 
-salir(){
-  this.route.navigate(['home']);
-}
+  salir() {
+    this.route.navigate(['home']);
+  }
+
+  equipo1: Jugador[] = [];
+  equipo2: Jugador[] = [];
+  
+
+  //Sorteo de equipos en base al nivel
+  hacerEquipos(jugadores:Jugador[]){
+    this.modalSorteo=true;
+    this.equipo1=[];
+    this.equipo2=[];
+    // Crear una copia del array antes de ordenar por nivel
+    jugadores.sort((jugadorA, jugadorB) => {
+      if (jugadorA.nivel < jugadorB.nivel) {
+        return -1;
+      } else if (jugadorA.nivel > jugadorB.nivel) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    console.log('Jugadores ordenados por nivel:', jugadores);
+    
+    for(let jugador of jugadores){
+      if(jugadores.indexOf(jugador) %2 ==0){
+        
+        this.equipo1.push(jugador)
+      }
+      else{
+        this.equipo2.push(jugador)
+      }    
+    }
+    console.log('Jugadores equipo1: ', this.equipo1);
+    console.log('Jugadores equipo2: ', this.equipo2);
+  }
+  volver(){
+    this.modalSorteo=false;
+    //TODO ver si es necesario
+    //vaciar equipos al volver del sorteo 
+    // this.equipo1=new Equipo([],1,'Equipo1');
+    // this.equipo2=new Equipo([],2,'Equipo2');
+    // this.equipos=[this.equipo1,this.equipo2];
+  }
 }
 
