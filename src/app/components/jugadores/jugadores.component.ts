@@ -175,7 +175,7 @@ export class JugadoresComponent implements OnInit {
         return 0;
       }
     });
-    console.log('Jugadores ordenados por nivel:', jugadores);
+    
     
     for(let jugador of jugadores){
       if(jugadores.indexOf(jugador) %2 ==0){
@@ -186,8 +186,7 @@ export class JugadoresComponent implements OnInit {
         this.equipo2.push(jugador)
       }    
     }
-    console.log('Jugadores equipo1: ', this.equipo1);
-    console.log('Jugadores equipo2: ', this.equipo2);
+
   }
   volver(){
     this.modalSorteo=false;

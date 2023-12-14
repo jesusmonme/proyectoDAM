@@ -8,7 +8,8 @@ import { Penya } from '../modelos/penya.model';
   providedIn: 'root'
 })
 export class EquipoServiceService {
-  private urlBase="http://localhost:8080/penyas-app/v1/equipos";
+  //private urlBase="http://localhost:8080/penyas-app/v1/equipos"; 
+ private urlBase="http://localhost:35640/penyas-app/v1/equipos";
   equipos: Equipo[];
   constructor(private clienteHttp : HttpClient) { }
 

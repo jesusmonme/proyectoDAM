@@ -27,10 +27,6 @@ export class SortearEquiposComponent implements OnInit{
       error: (error: any) => console.log(error)
     }
     );
-    console.log('Equipo1 ', this.equipo1);
-    console.log('Equipo2 ', this.equipo2);
-   
-
   }
 
 volver(){

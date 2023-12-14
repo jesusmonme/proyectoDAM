@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JugadoresServiceService {
-
-  private urlBase="http://localhost:8080/penyas-app/v1/jugadores";
+  
+  //private urlBase="http://localhost:8080/penyas-app/v1/jugadores";
+  private urlBase="http://localhost:35640/penyas-app/v1/jugadores";
   jugadores:Jugador[];
   constructor(private clienteHttp: HttpClient) { 
 
