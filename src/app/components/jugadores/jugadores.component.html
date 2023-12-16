@@ -1,4 +1,4 @@
-<app-sortear-equipos *ngIf="modalSorteo" [equipo1]="equipo1" [equipo2]="equipo2" [idPenya]="id" [modalSorteo]="modalSorteo"></app-sortear-equipos>
+<app-sortear-equipos *ngIf="modalSorteo" [equipo1]="equipo1" [equipo2]="equipo2" [idPenya]="id" [modalSorteo]="modalSorteo" [modalResultado]="modalResultado" (mensajeAlPadre)="cambiarModalResultado($event)"></app-sortear-equipos>
 
 
 <div *ngIf="modalSorteo==false" >
@@ -64,6 +64,7 @@
 </footer>
 </div>
 <footer *ngIf="modalSorteo" class="footer-button"> 
+    <button class="boton-jugadores" (mousedown)="mostrarModalResultado()">Anotar Resultado</button>
     <button class="boton-jugadores" (mousedown)="volver()">Volver</button>
 </footer>
     

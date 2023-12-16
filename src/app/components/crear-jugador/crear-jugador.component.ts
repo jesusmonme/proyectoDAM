@@ -63,7 +63,7 @@ export class CrearJugadorComponent implements OnInit {
   }
   
   salir(){
-    this.route.navigate(['jugadores/',this.penya.idPenya]);
+    this.route.navigate(['jugadores/',this.id]);
   }
 
   limpiarDatos() {

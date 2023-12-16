@@ -1,6 +1,19 @@
 <header>
     <div class="titulo-cabecera">Equipos Sorteados</div>
 </header>
+<div *ngIf="modalResultado">
+    <div class="centrado">
+    <div class="modalResultado">        
+        <label for="resultado" class="titulo-resultado" >Equipo Ganador</label>
+        <select name="resultado" id="resultado" class="select-resultado">
+            <option value="equipo1">{{equipos[1].nombreEquipo}}</option>
+            <option value="equipo2">{{equipos[2].nombreEquipo}}</option>
+        </select>
+        <button class="boton-jugadores">Guardar</button>
+        <button class="boton-jugadores" (mousedown)="cerrarResultado()">Cancelar</button>
+    </div>
+</div>
+</div>
 <section class="equipos">
     <div class="container-jugadores">
         <div class="div-equipo">
@@ -29,4 +42,5 @@
         </div>
     </div>
 </section>
+
 

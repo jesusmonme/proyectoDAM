@@ -18,6 +18,11 @@ header{
     margin-top: 18px;
     font-size: 1.5em;
 }
+.titulo-resultado{
+    font-weight: bolder;
+    font-size: larger;
+    color: #022452;
+}
 .container-jugadores {   
     display: flex;   
     flex-wrap: wrap;
@@ -102,4 +107,32 @@ header{
   footer button:active{
     background-color: #023E8A;
     color:aqua;
+}
+
+.modalResultado{
+    border-radius: 10px;
+    /* width: 50%; */
+    margin: auto;
+    padding: 10px 50px 10px 50px;
+    height: 230px;
+    background-color: aliceblue;
+    border: 3px;
+    box-shadow: 1px 1px 3px #023E8A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 150px;
+}
+
+.select-resultado{
+    margin-right: 16px;
+    border-radius: 5px;
+}
+.centrado{
+    position:fixed;
+    left: 50%;
+    translate: -50%;
+    z-index: 9999;
 }

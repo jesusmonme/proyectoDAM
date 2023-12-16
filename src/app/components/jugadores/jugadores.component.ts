@@ -20,6 +20,7 @@ export class JugadoresComponent implements OnInit {
   jugadoresSeleccionados: number = 0;
   contadorEquipos = 2;
   jugadoresConvocados: Jugador[] = [];
+  modalResultado: boolean = false;
   // ver como asociar imagenes a un valor, estas variables no se si al final las usare
   iconoUltimoPartido = [1, 2, 3];
   iconoMiembro = ['SI', 'NO'];
@@ -195,6 +196,13 @@ export class JugadoresComponent implements OnInit {
     // this.equipo1=new Equipo([],1,'Equipo1');
     // this.equipo2=new Equipo([],2,'Equipo2');
     // this.equipos=[this.equipo1,this.equipo2];
+  }
+  mostrarModalResultado(){
+    this.modalResultado = true;
+  }
+  //viene del hijo "sortearEquipos"
+  cambiarModalResultado(modalResultado:boolean): void{
+    this.modalResultado=modalResultado;
   }
 }
 

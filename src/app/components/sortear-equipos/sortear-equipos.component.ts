@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Equipo } from 'src/app/modelos/equipo.model';
 import { Jugador } from 'src/app/modelos/jugador.model';
@@ -11,11 +11,13 @@ import { EquipoServiceService } from 'src/app/services/equipo-service.service';
   styleUrls: ['./sortear-equipos.component.css']
 })
 export class SortearEquiposComponent implements OnInit{
-  @Input() equipo1:Jugador[];
-  @Input() equipo2:Jugador[];
-  @Input() idPenya:number;
-  @Input() modalSorteo:boolean;
+  @Input() equipo1?: Jugador[];
+  @Input() equipo2?: Jugador[];
+  @Input() idPenya: number;
+  @Input() modalSorteo: boolean;
+  @Input() modalResultado: boolean;
   equipos: Equipo[]=[];
+  @Output() mensajeAlPadre = new EventEmitter<boolean>();
   
   nombreEquipo1:String;
   nombreEquipo2:String;
@@ -34,4 +36,7 @@ volver(){
   this.route.navigate(['jugadores/',this.idPenya]);
 }
 
+cerrarResultado(){
+  this.mensajeAlPadre.emit(false);
+}
 }
