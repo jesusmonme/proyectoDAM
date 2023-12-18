@@ -20,7 +20,6 @@ export class SortearEquiposComponent implements OnInit {
   @Input() penya: Penya;
   @Input() modalSorteo: boolean;
   @Input() modalResultado: boolean;
-  equipos?: Equipo[] = [];
   @Output() mensajeAlPadre = new EventEmitter<boolean>();
   equipoGanador: string = "";
 
@@ -30,12 +29,6 @@ export class SortearEquiposComponent implements OnInit {
     private servicioJugadores: JugadoresServiceService) {
   }
   ngOnInit(): void {
-    // this.servicioEquipo.obtenerEquipos(this.idPenya).subscribe({
-    //   next: (datos) => this.equipos = datos,
-    //   error: (error: any) => console.log(error)
-    // }
-    // );
-
     this.establecerRatioJugadores();
   }
 
@@ -71,7 +64,7 @@ export class SortearEquiposComponent implements OnInit {
           });
         }
         
-        alert("Equipo Ganador: "+ this.equipos![1].nombreEquipo + ". Puede anotar más partidos")
+        alert("Equipo Ganador: "+ this.penya.equipo1 + ". Puede anotar más partidos")
       }
       else{
         for (const jugadorGanador of this.equipo2) {
@@ -90,7 +83,7 @@ export class SortearEquiposComponent implements OnInit {
             error:(error:any) => {console.log(error)}
           });
         }
-        alert("Equipo Ganador: "+ this.equipos![2].nombreEquipo + ". Puede anotar más partidos")
+        alert("Equipo Ganador: "+ this.penya.equipo2 + ". Puede anotar más partidos")
       }
     }   
   }
