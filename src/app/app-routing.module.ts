@@ -9,6 +9,7 @@ import { SortearEquiposComponent } from './components/sortear-equipos/sortear-eq
 import { ErrorPersonalizadoComponent } from './components/error-personalizado/error-personalizado.component';
 import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
 import { EditarJugadorComponent } from './components/editar-jugador/editar-jugador.component';
+import { ClasificacionComponent } from './components/clasificacion/clasificacion.component';
 
 //http:localhost:4200/login
 const routes:Routes=[
@@ -21,6 +22,7 @@ const routes:Routes=[
   {path:"jugadores/:id", component:JugadoresComponent},   
   {path:"sorteo", component:SortearEquiposComponent},
   {path:"jugadores/:idPenya/:idJugador", component:EditarJugadorComponent},
+  {path:"clasificacion/:idPenya", component:ClasificacionComponent},
   {path:"**", component:ErrorPersonalizadoComponent}
 
 ];

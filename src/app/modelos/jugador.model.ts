@@ -3,9 +3,9 @@ export class Jugador{
 
         public nombreJugador:string=''
 
-        public idEquipo:number
+        public idEquipo?:number
 
-        public idPenya:number
+        public idPenya?:number
 
         public nivel:string=''
 
@@ -15,7 +15,7 @@ export class Jugador{
 
         public descripcion?:string
 
-        public incompatibilidad?:string="";
+        public incompatibilidad:string="";
 
         public email?:string
 

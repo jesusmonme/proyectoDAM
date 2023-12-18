@@ -1,6 +1,7 @@
-<app-sortear-equipos *ngIf="modalSorteo" [equipo1]="equipo1" [equipo2]="equipo2" [idPenya]="id" [modalSorteo]="modalSorteo" [modalResultado]="modalResultado" (mensajeAlPadre)="cambiarModalResultado($event)"></app-sortear-equipos>
+<app-sortear-equipos *ngIf="modalSorteo" [equipo1]="equipo1" [equipo2]="equipo2" [idPenya]="id" [modalSorteo]="modalSorteo" [modalResultado]="modalResultado" 
+(mensajeAlPadre)="cambiarModalResultado($event)" ></app-sortear-equipos>
 
-
+<div *ngIf="modalJugadores">
 <div *ngIf="modalSorteo==false" >
 <header>     
     <div class="titulo-cabecera">Jugadores de {{penya.nombrePenya}}</div> 
@@ -15,6 +16,7 @@
         <div>
         <!-- <button class="button-cabecera izda" (click)="restarContador()">-</button > -->
         <button class="boton-sorteo" (click)="hacerEquipos(jugadoresConvocados)">Sortear Equipos</button>
+        <button class="boton-sorteo" (click)="irClasificacion()">Clasificación</button>
         <!-- <button class="button-cabecera izda" (click)="sumarContador()">+</button> -->
         </div>
         <!-- <button class="button-cabecera dcha">Últimos equipos</button> -->
@@ -63,8 +65,10 @@
    <button class="boton-jugadores" (click)="salir()">Salir</button>
 </footer>
 </div>
+</div>
 <footer *ngIf="modalSorteo" class="footer-button"> 
     <button class="boton-jugadores" (mousedown)="mostrarModalResultado()">Anotar Resultado</button>
     <button class="boton-jugadores" (mousedown)="volver()">Volver</button>
 </footer>
+<app-clasificacion *ngIf="modalClasificacion" [idPenya]="id"  [modalClasificacion]="modalClasificacion" (salirClasificacion)="cambiarModalClasificacion($event)" ></app-clasificacion> 
     

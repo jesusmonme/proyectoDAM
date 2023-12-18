@@ -55,6 +55,7 @@ header{
     cursor: pointer;
     box-shadow: 1px 1px 5px #023E8A;
     font-weight: bolder;
+    margin-right: 15px;
 }
 .izda{
     float: left;

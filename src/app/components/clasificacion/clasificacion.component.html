@@ -1,0 +1,24 @@
+<body>
+    <header>      
+            <div class="titulo-cabecera">Clasificación Jugadores ({{penya.nombrePenya}})</div>  
+    </header>
+    <div >
+        <!-- TODO corregir campos y poner maximo caracteres nombre -->
+         <!-- TODO cuando el click esta en todo el div, al darle a los botones se ejecuta tb irApenya, mientras en nombre-->
+        <div *ngFor="let jugador of jugadoresClasificacion; let i=index" >
+            <div class="div-padre-relativo-de-absolute div-penyas"  >
+                <div class="nombre-penya">{{i+1}}.- {{jugador.nombreJugador}}</div>
+                <div>
+                <span>Partidos Ganados: {{jugador.partidosGanados}} -</span>
+                <span> Partidos Perdidos: {{jugador.partidosPerdidos}} -</span>
+                <span> % Victorias: {{jugador.ratio}} %</span>
+            </div>
+            </div>
+            
+        </div>                
+    </div>
+    <footer>        
+        <button class="boton-crear" (click)="volver()">Volver</button>        
+    </footer>   
+</body>
+

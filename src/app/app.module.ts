@@ -15,6 +15,7 @@ import { ErrorPersonalizadoComponent } from './components/error-personalizado/er
 import { HttpClientModule } from '@angular/common/http';
 import { EditarPenyaComponent } from './components/editar-penya/editar-penya.component';
 import { EditarJugadorComponent } from './components/editar-jugador/editar-jugador.component';
+import { ClasificacionComponent } from './components/clasificacion/clasificacion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditarJugadorComponent } from './components/editar-jugador/editar-jugad
     SortearEquiposComponent,
     ErrorPersonalizadoComponent,
     EditarPenyaComponent,
-    EditarJugadorComponent
+    EditarJugadorComponent,
+    ClasificacionComponent
    
   ],
   imports: [

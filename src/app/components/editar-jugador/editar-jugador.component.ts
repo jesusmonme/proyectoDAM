@@ -60,7 +60,9 @@ export class EditarJugadorComponent {
       alert('El nombre y posición deben estar rellenos');
     }
     else{     
-      this.servicioJugadores.agregarJugador(this.jugadorEditar, this.idPenya).subscribe({
+     // this.servicioJugadores.agregarJugador(this.jugadorEditar, this.idPenya).subscribe({
+      this.servicioJugadores.editarJugador(this.jugadorEditar).subscribe({
+
         complete:() =>{
           alert(`Jugador ${this.jugadorEditar.nombreJugador} editado`);
           this.salir();

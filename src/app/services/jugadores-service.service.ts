@@ -34,8 +34,8 @@ agregarJugador(jugador: Jugador, idPenya:number):Observable<Object> {
 //   return this.clienteHttp.post<Jugador>(`${this.urlBase}/crearJugador/${id}`, jugador);
 // }
 
-editarJugador( jugador:Jugador,idPenya:number):Observable<Object>{
-  return this.clienteHttp.put(`${this.urlBase}/editarJugador/${idPenya}`,jugador);
+editarJugador(jugador:Jugador):Observable<Object>{
+  return this.clienteHttp.put(`${this.urlBase}/editarJugador`,jugador);
 }
 
 obtenerJugadorPorId(id:number){

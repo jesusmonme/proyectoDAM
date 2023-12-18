@@ -45,7 +45,8 @@ export class HomeComponent implements OnInit {
     if (confirmacion) {
       this.penyaService.eliminarPenya(id).subscribe(
         {
-          next:(datos) => this.obtenerPenyas(),
+          complete:() =>{ this.obtenerPenyas();
+          alert('Peña eliminada')},
           error:(errores)=> console.log(errores)
         }
       );

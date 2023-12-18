@@ -1,23 +1,23 @@
 <header>
     <div class="titulo-cabecera">Equipos Sorteados</div>
 </header>
-<div *ngIf="modalResultado">
-    <div class="centrado">
-    <div class="modalResultado">        
-        <label for="resultado" class="titulo-resultado" >Equipo Ganador</label>
-        <select name="resultado" id="resultado" class="select-resultado">
-            <option value="equipo1">{{equipos[1].nombreEquipo}}</option>
-            <option value="equipo2">{{equipos[2].nombreEquipo}}</option>
-        </select>
-        <button class="boton-jugadores">Guardar</button>
-        <button class="boton-jugadores" (mousedown)="cerrarResultado()">Cancelar</button>
+    <div *ngIf="modalResultado">
+        <div class="centrado">
+        <div class="modalResultado">        
+            <label for="resultado" class="titulo-resultado" >Equipo Ganador</label>
+            <select name="resultado" id="resultado" class="select-resultado" [(ngModel)]="equipoGanador">
+                <option value="1">{{equipos[1]!.nombreEquipo}}</option>
+                <option value="2">{{equipos[2]!.nombreEquipo}}</option>
+            </select>
+            <button class="boton-jugadores" (click)="guardarResultado(equipoGanador)">Guardar</button>
+            <button class="boton-jugadores" (mousedown)="cerrarResultado()">Volver</button>
+        </div>
     </div>
-</div>
-</div>
+    </div>
 <section class="equipos">
     <div class="container-jugadores">
         <div class="div-equipo">
-            <div>{{equipos[1].nombreEquipo}}</div>
+            <div>equipo1</div>
         </div>
         <div *ngFor="let jugador of equipo1; let i=index">
             <div id=i class="div-jugadores">
@@ -30,7 +30,7 @@
     </div>
     <div class="container-jugadores">
         <div class=" div-equipo">
-            <div>{{equipos[2].nombreEquipo}}</div>
+            <div>equipo 2</div>
         </div>
         <div *ngFor="let jugador of equipo2; let i=index">
             <div id=i class="div-jugadores">
