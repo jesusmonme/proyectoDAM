@@ -21,10 +21,10 @@ export class JugadoresComponent implements OnInit {
   contadorEquipos = 2;
   jugadoresConvocados: Jugador[] = [];
   modalResultado: boolean = false;
-  // ver como asociar imagenes a un valor, estas variables no se si al final las usare
-  iconoUltimoPartido = [1, 2, 3];
-  iconoMiembro = ['SI', 'NO'];
-  iconoRatio = [1, 2, 3];
+  jugadorConCambiosPartidos?: Jugador;
+  modalClasificacion: boolean=false;
+  modalJugadores:boolean= true;
+  
   constructor(private servicioJugadores: JugadoresServiceService,
     private servicioPenyas: PenyasServiceService,
     private route: Router, private router: ActivatedRoute) {
@@ -33,6 +33,9 @@ export class JugadoresComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.jugadoresConvocados=[];
+    this.modalClasificacion=false;
+    this.modalJugadores=true;
     this.id = this.router.snapshot.params['id'];
     this.servicioPenyas.obtenerPenyaPorId(this.id).subscribe({
       next: (datos) => this.penya = datos,
@@ -53,32 +56,25 @@ export class JugadoresComponent implements OnInit {
     }
     );
   }
-  //TODO metodo en servicio jugadores de obtener jugadores con idPenya
+ 
+  // sumarContador() {
+  //   //TODO si al final no hay tiempo para que puedan ser mas de 2equipos, mandar alerta "version premium"
+  //   if (this.contadorEquipos >= 2) {
+  //     this.contadorEquipos = ++this.contadorEquipos;
 
-
-  //TODO corregir cuando pasemos un id al indice array peñas
-  // nombrePenya = this.servicioPenyas.penyas[0].nombrePenya;
-
-  //ver como gestionar el sorteo equipos,si metiendo cada uno en array o
-  //en un solo por si habilito mas de 2equipos y coger tramos para cada equipo
-  sumarContador() {
-    //TODO si al final no hay tiempo para que puedan ser mas de 2equipos, mandar alerta "version premium"
-    if (this.contadorEquipos >= 2) {
-      this.contadorEquipos = ++this.contadorEquipos;
-
-    }
-    else {
-      this.contadorEquipos = 2;
-    }
-  }
-  restarContador() {
-    if (this.contadorEquipos > 2) {
-      this.contadorEquipos = --this.contadorEquipos;
-    }
-    else {
-      this.contadorEquipos = 2;
-    }
-  }
+  //   }
+  //   else {
+  //     this.contadorEquipos = 2;
+  //   }
+  // }
+  // restarContador() {
+  //   if (this.contadorEquipos > 2) {
+  //     this.contadorEquipos = --this.contadorEquipos;
+  //   }
+  //   else {
+  //     this.contadorEquipos = 2;
+  //   }
+  // }
   crearJugadores() {
     this.route.navigate(['crearJugador/', this.id]);
     
@@ -89,15 +85,13 @@ export class JugadoresComponent implements OnInit {
     const jugadorBuscado = this.jugadores.find((elemento) => elemento.idJugador == idJugador);
     if (jugadorBuscado) {
       if (jugadorBuscado.jugadorSeleccionado == false) {
-        jugadorBuscado.jugadorSeleccionado = true;
-        this.jugadoresSeleccionados++;
-
+        jugadorBuscado.jugadorSeleccionado = true;       
         this.jugadoresConvocados.push(jugadorBuscado);
-
+        this.jugadoresSeleccionados++;
       }
       else {
         jugadorBuscado.jugadorSeleccionado = false;
-        this.jugadoresSeleccionados--;
+        this.jugadoresSeleccionados--;      
         this.jugadoresConvocados = this.jugadoresConvocados.filter(j => j.idJugador !== jugadorBuscado.idJugador);
 
 
@@ -121,34 +115,9 @@ export class JugadoresComponent implements OnInit {
       );
       
     }
-    
-    //TODO corregir para que no se marque el jugador al darle a eliminar
-    //this.jugadoresSeleccionados=-1;
   }
 
-  sortearEquipos() {
-    //Probando para separar equipos sin equilibrar, solo meter parres en un lado e impares en otro
 
-    // this.modalSorteo=true;
-    // for(let i=0;i<this.jugadoresConvocados.length;i++){
-    //   if(this.jugadoresConvocados.length % i !=0){
-    //     this.equipo1.jugadores.push(this.jugadoresConvocados[i]);
-    //   }
-    //   else{
-    //     this.equipo2.jugadores.push(this.jugadoresConvocados[i]);
-    //   }
-
-    // }
-    // this.route.navigate(['sorteo']);
-  }
-  // volver(){
-  //   this.modalSorteo=false;
-  //   //TODO ver si es necesario
-  //   //vaciar equipos al volver del sorteo 
-  //   this.equipo1=new Equipo([],1,'Equipo1');
-  //   this.equipo2=new Equipo([],2,'Equipo2');
-  //   this.equipos=[this.equipo1,this.equipo2];
-  // }
   editarJugador(idJugador: number, idPenya: number) {
     this.route.navigate(['/jugadores/', idPenya, idJugador]);
   }
@@ -163,7 +132,7 @@ export class JugadoresComponent implements OnInit {
 
   //Sorteo de equipos en base al nivel
   hacerEquipos(jugadores:Jugador[]){
-    this.modalSorteo=true;
+    
     this.equipo1=[];
     this.equipo2=[];
     // Crear una copia del array antes de ordenar por nivel
@@ -187,22 +156,35 @@ export class JugadoresComponent implements OnInit {
         this.equipo2.push(jugador)
       }    
     }
-
+    this.modalSorteo=true;
   }
   volver(){
     this.modalSorteo=false;
-    //TODO ver si es necesario
-    //vaciar equipos al volver del sorteo 
-    // this.equipo1=new Equipo([],1,'Equipo1');
-    // this.equipo2=new Equipo([],2,'Equipo2');
-    // this.equipos=[this.equipo1,this.equipo2];
   }
+
   mostrarModalResultado(){
     this.modalResultado = true;
   }
   //viene del hijo "sortearEquipos"
   cambiarModalResultado(modalResultado:boolean): void{
     this.modalResultado=modalResultado;
+    //cuando se cierre la modal resultado pone contador jugadores seleccionados y convocados a 0
+    this.jugadoresSeleccionados=0;
+    this.jugadoresConvocados=[];
   }
+
+  irClasificacion(){   
+    this.modalClasificacion=true;
+    this.modalResultado=false;
+    this.modalSorteo=false;
+    this.modalJugadores=false;
+  }
+
+  cambiarModalClasificacion(modalClasificacion:boolean):void{
+    this.modalClasificacion=modalClasificacion;
+    this.modalJugadores=true;
+  }
+  
+
 }
 

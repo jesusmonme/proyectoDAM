@@ -27,7 +27,7 @@ export class Jugador{
 
         public ratio:number=0
 
-        public ultimoPartido?:string
+        public ultimoPartido?:boolean;
 
         public jugadorSeleccionado:boolean=false
 }

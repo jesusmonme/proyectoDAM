@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Equipo } from 'src/app/modelos/equipo.model';
 import { Jugador } from 'src/app/modelos/jugador.model';
+import { Penya } from 'src/app/modelos/penya.model';
 import { EquipoServiceService } from 'src/app/services/equipo-service.service';
 import { JugadoresServiceService } from 'src/app/services/jugadores-service.service';
 
@@ -12,12 +13,14 @@ import { JugadoresServiceService } from 'src/app/services/jugadores-service.serv
   styleUrls: ['./sortear-equipos.component.css']
 })
 export class SortearEquiposComponent implements OnInit {
+  
   @Input() equipo1?: Jugador[];
   @Input() equipo2?: Jugador[];
   @Input() idPenya: number;
+  @Input() penya: Penya;
   @Input() modalSorteo: boolean;
   @Input() modalResultado: boolean;
-  equipos: Equipo[] = [];
+  equipos?: Equipo[] = [];
   @Output() mensajeAlPadre = new EventEmitter<boolean>();
   equipoGanador: string = "";
 
@@ -27,11 +30,13 @@ export class SortearEquiposComponent implements OnInit {
     private servicioJugadores: JugadoresServiceService) {
   }
   ngOnInit(): void {
-    this.servicioEquipo.obtenerEquipos(this.idPenya).subscribe({
-      next: (datos) => this.equipos = datos,
-      error: (error: any) => console.log(error)
-    }
-    );
+    // this.servicioEquipo.obtenerEquipos(this.idPenya).subscribe({
+    //   next: (datos) => this.equipos = datos,
+    //   error: (error: any) => console.log(error)
+    // }
+    // );
+
+    this.establecerRatioJugadores();
   }
 
   volver() {
@@ -50,6 +55,7 @@ export class SortearEquiposComponent implements OnInit {
           jugadorGanador.partidosGanados++;
           jugadorGanador.ratio = this.ratio(jugadorGanador.partidosGanados,jugadorGanador.partidosPerdidos);
           jugadorGanador.jugadorSeleccionado = false;
+          jugadorGanador.ultimoPartido = true;
           this.servicioJugadores.editarJugador(jugadorGanador).subscribe({    
             error:(error:any) => {console.log(error)}
           });
@@ -59,12 +65,13 @@ export class SortearEquiposComponent implements OnInit {
           jugadorPerdedor.partidosPerdidos++;
           jugadorPerdedor.ratio = this.ratio(jugadorPerdedor.partidosGanados,jugadorPerdedor.partidosPerdidos);
           jugadorPerdedor.jugadorSeleccionado = false;
+          jugadorPerdedor.ultimoPartido = false;
           this.servicioJugadores.editarJugador(jugadorPerdedor).subscribe({   
             error:(error:any) => {console.log(error)}
           });
         }
         
-        alert("Equipo Ganador: "+ this.equipos[1].nombreEquipo + ". Puede anotar más partidos")
+        alert("Equipo Ganador: "+ this.equipos![1].nombreEquipo + ". Puede anotar más partidos")
       }
       else{
         for (const jugadorGanador of this.equipo2) {
@@ -83,11 +90,31 @@ export class SortearEquiposComponent implements OnInit {
             error:(error:any) => {console.log(error)}
           });
         }
-        alert("Equipo Ganador: "+ this.equipos[2].nombreEquipo + ". Puede anotar más partidos")
+        alert("Equipo Ganador: "+ this.equipos![2].nombreEquipo + ". Puede anotar más partidos")
       }
     }   
   }
   ratio(partidosGanados: number, partidosPerdidos: number){
     return ((partidosGanados)/(partidosGanados+partidosPerdidos))*100;
+  }
+  establecerRatioJugadores(){
+    if (this.equipo1 && this.equipo2){
+    for (const jugador of this.equipo1){
+      if(jugador.partidosGanados + jugador.partidosPerdidos == 0){
+        jugador.ratio=0;
+      }
+      else{
+      jugador.ratio=((jugador.partidosGanados)/(jugador.partidosGanados + jugador.partidosPerdidos))*100;
+    }
+    }
+    for (const jugador of this.equipo2){
+      if(jugador.partidosGanados + jugador.partidosPerdidos == 0){
+        jugador.ratio=0;
+      }
+      else{
+      jugador.ratio=((jugador.partidosGanados)/(jugador.partidosGanados + jugador.partidosPerdidos))*100;
+    }
+    }
+  }
   }
 }

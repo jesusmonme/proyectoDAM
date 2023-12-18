@@ -6,8 +6,8 @@
         <div class="modalResultado">        
             <label for="resultado" class="titulo-resultado" >Equipo Ganador</label>
             <select name="resultado" id="resultado" class="select-resultado" [(ngModel)]="equipoGanador">
-                <option value="1">{{equipos[1]!.nombreEquipo}}</option>
-                <option value="2">{{equipos[2]!.nombreEquipo}}</option>
+                <option value="1">{{penya.equipo1}}</option>
+                <option value="2">{{penya.equipo2}}</option>
             </select>
             <button class="boton-jugadores" (click)="guardarResultado(equipoGanador)">Guardar</button>
             <button class="boton-jugadores" (mousedown)="cerrarResultado()">Volver</button>
@@ -17,27 +17,29 @@
 <section class="equipos">
     <div class="container-jugadores">
         <div class="div-equipo">
-            <div>equipo1</div>
+            <div>{{penya.equipo1}}</div>
         </div>
         <div *ngFor="let jugador of equipo1; let i=index">
             <div id=i class="div-jugadores">
                 <div class="foto-jugador"><img src="assets/persona-rellena.png" alt="Foto jug"></div>
                 <span class="titulo-jugador">{{jugador.nombreJugador}}</span><br>
-                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio}}</span><br>
-                <span>Ultim:{{jugador.ultimoPartido}} - Vic: ((%)) - Emp: ((%)) - Der: ((%))</span>
+                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio | number:'1.2-2'}}%</span><br>
+                <span *ngIf="jugador.ultimoPartido==false">Ultimo partido:Perdido</span>
+                <span *ngIf="jugador.ultimoPartido==true">Ultimo partido:Ganado</span>
             </div>
         </div>
     </div>
     <div class="container-jugadores">
         <div class=" div-equipo">
-            <div>equipo 2</div>
+            <div>{{penya.equipo2}}</div>
         </div>
         <div *ngFor="let jugador of equipo2; let i=index">
             <div id=i class="div-jugadores">
                 <div class="foto-jugador"><img src="assets/persona-rellena.png" alt="Foto jug"></div>
                 <span class="titulo-jugador">{{jugador.nombreJugador}}</span><br>
-                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio}}</span><br>
-                <span>Ultim:{{jugador.ultimoPartido}} - Vic: ((%)) - Emp: ((%)) - Der: ((%))</span>
+                <span>Pos:{{jugador.posicion}} Ratio:{{jugador.ratio | number:'1.2-2'}}%</span><br>
+                <span *ngIf="jugador.ultimoPartido==false">Ultimo partido:Perdido</span>
+                <span *ngIf="jugador.ultimoPartido==true">Ultimo partido:Ganado</span>
             </div>
         </div>
     </div>

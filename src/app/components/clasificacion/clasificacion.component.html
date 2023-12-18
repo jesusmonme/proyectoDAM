@@ -1,6 +1,6 @@
 <body>
     <header>      
-            <div class="titulo-cabecera">Clasificación Jugadores ({{penya.nombrePenya}})</div>  
+            <div class="titulo-cabecera">Clasificación ({{penya.nombrePenya}})</div>  
     </header>
     <div >
         <!-- TODO corregir campos y poner maximo caracteres nombre -->
@@ -9,9 +9,10 @@
             <div class="div-padre-relativo-de-absolute div-penyas"  >
                 <div class="nombre-penya">{{i+1}}.- {{jugador.nombreJugador}}</div>
                 <div>
-                <span>Partidos Ganados: {{jugador.partidosGanados}} -</span>
-                <span> Partidos Perdidos: {{jugador.partidosPerdidos}} -</span>
-                <span> % Victorias: {{jugador.ratio}} %</span>
+                    <span>Ratio:{{jugador.ratio | number:'1.2-2'}}% </span>                  
+                    <span>Ganados:{{jugador.partidosGanados}} </span>
+                    <span>Perdidos:{{jugador.partidosPerdidos}} </span>
+                
             </div>
             </div>
             

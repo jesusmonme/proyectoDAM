@@ -1,0 +1,23 @@
+INSERT INTO `penyas`.`penya` (`equipo1`, `equipo2`, `nombrebd`, `nombre_penya`) VALUES ('Equipo Uno', 'Equipo Dos', 'penya1', 'Peña 1');
+INSERT INTO `penyas`.`penya` (`equipo1`, `equipo2`, `nombrebd`, `nombre_penya`) VALUES ('Equipo Color', 'Equipo Blanco', 'penya2', 'Peña 2');
+
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('No convocados', '1');
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('Equipo Uno', '1');
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('Equipo Dos', '1');
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('No convocados', '2');
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('Equipo Color', '2');
+INSERT INTO `penyas`.`equipo` (`nombre_equipo`, `id_penya`) VALUES ('Equipo Blanco', '2');
+
+
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion1', 'jugador1@correo.com', 0, 1, 'A', 'Jugador 1', 0, 0, 0, '1', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion2', 'jugador2@correo.com', 0, 1, 'B', 'Jugador 2', 0, 0, 1, '2', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion3', 'jugador3@correo.com', 0, 1, 'C', 'Jugador 3', 0, 0, 1, '3', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion4', 'jugador4@correo.com', 0, 1, 'D', 'Jugador 4', 0, 0, 3, '4', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion5', 'jugador5@correo.com', 0, 1, 'E', 'Jugador 5', 0, 1, 2, '5', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion6', 'jugador6@correo.com', 0, 1, 'A', 'Jugador 6', 0, 0, 1, '1', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion7', 'jugador7@correo.com', 0, 1, 'B', 'Jugador 7', 0, 3, 1, '2', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion8', 'jugador8@correo.com', 0, 1, 'C', 'Jugador 8', 0, 1, 0, '3', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion9', 'jugador9@correo.com', 0, 1, 'D', 'Jugador 9', 0, 1, 0, '4', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion10', 'jugador10@correo.com', 0, 1, 'E', 'Jugador 10', 0, 2, 0, '5', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion11', 'jugador11@correo.com', 0, 1, 'A', 'Jugador 11', 0, 2, 1, '2', 0, 1, 1);
+INSERT INTO `penyas`.`jugador` (`descripcion`, `email`, `jugador_seleccionado`, `miembro`, `nivel`, `nombre_jugador`, `partidos_empatados`, `partidos_ganados`, `partidos_perdidos`, `posicion`, `ratio`, `id_equipo`, `id_penya`) VALUES ('descripcion12', 'jugador12@correo.com', 0, 1, 'A', 'Jugador 12', 0, 3, 2, '3', 0, 1, 1);
